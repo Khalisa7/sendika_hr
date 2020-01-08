@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Niramit:300,400,500,600,700|Roboto:300,400,500,700,900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+$break-min-large: 768px;
+$primary-color: #009f61;
+
+*, ::after, ::before{
+    box-sizing: border-box;
+}
+a{
+    color: #303F9F;
+}
+h1,h2,h3,h4,h5,h6, a{
+    text-transform: capitalize;
+}
+p{
+    word-wrap:break-word;
+    font-family: 'Roboto', sans-serif;
+}
+.breadcrumb{
+    color: black;
+    background: none;
+    padding:0;
+}
+.badge-primary{
+    background: #303F9F;
+}
+
+
+@media screen and (min-device-width : $break-min-large) {
+    p, .btn, .dropdown-menu{
+        font-size: 14px;
+    }
+}
+@media screen and (max-device-width : $break-min-large) {
+    // .btn {
+    //     font-size: 12px;
+    // }
+}
