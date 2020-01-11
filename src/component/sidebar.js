@@ -9,10 +9,10 @@
  */
 
 
-import React, { Component, useState } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faHome, faUser, faUserFriends, faCalendarAlt, faBell } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -98,6 +98,7 @@ function Sidebar_SingleMenu(props){
                 <span>
                     {props.children}
                 </span>
+                <span className="position-relative float-right"><FontAwesomeIcon icon={faCaretRight}  /></span>
             </Link>
         </li>
     )

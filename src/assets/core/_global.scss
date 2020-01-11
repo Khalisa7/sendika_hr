@@ -10,14 +10,6 @@
 
 // Extra large screen
     
-    
-*{
-    -webkit-transition:300ms linear;
-    -moz-transition:300ms linear;
-    -o-transition:300ms linear;
-    -ms-transition:300ms linear;
-    transition:300ms linear;
-}
 
 body{
     #main{
@@ -30,6 +22,8 @@ body{
                 display: none;
             }
 
+            
+
             // Sidebar
             .sidebar{
                 background:$primary-color;
@@ -37,6 +31,7 @@ body{
                 position: fixed;
                 min-height: 100%;
                 width: 250px;
+
                 .sidebar-title{
                     text-align: center;
                     color: white;
@@ -60,7 +55,7 @@ body{
                         li{
                             display: flex;
                             padding: 10px;
-                            margin: 10px;
+                            margin: 5px 10px;
                             &.active{
                                 background: white;
                                 border-radius: 5px;
@@ -72,12 +67,6 @@ body{
                             .menu-item{
                                 width: 100%;
                                 font-weight: 500;
-                                &::after{
-                                    content: '\f0da';
-                                    font-family: 'FontAwesome';
-                                    position: absolute;
-                                    right: 20px;
-                                }
                             }
                             .fa-fw{
                                 margin-right: 15px;

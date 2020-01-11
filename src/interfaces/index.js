@@ -6,7 +6,7 @@ import {  faHome, faUser, faUserFriends, faCalendarAlt, faBell, faBlender } from
 import Home from '@src/pages/home'
 
 const bundle = {
-    "routes" : [
+    "routes"    : [
         {
             path: "/",
             component: Home,
@@ -32,12 +32,12 @@ const bundle = {
             ]
         }
     ],
-    "brand" : {
+    "brand"     : {
         "fullName"  : "Sendika HR",
         "firstName" : "Sendika",
         "lastName"  : "HR",
     },
-    "sidebar" : [
+    "sidebar"   : [
         {
             name    : "home",
             label   : "Home",
@@ -61,7 +61,7 @@ const bundle = {
         },
         {
             name    : "calendar",
-            label   : "Calender",
+            label   : "Calendar",
             link    : "/calendar",
             active  : false,
             icons   : <FontAwesomeIcon icon={faCalendarAlt} className="fa-fw" />

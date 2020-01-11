@@ -16,11 +16,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { bundle } from '@src/interfaces'
 
 import { Sidebar, Sidebar_Logo, Sidebar_Content } from '@src/component/sidebar'
-import { Navbar, NavbarBrand, NavbarRight } from '@src/component/navbar'
+import { Navbar, NavbarBrand, NavbarRight, NavbarDropdown, NavbarNotification } from '@src/component/navbar'
 import { Overlay } from '@src/component/overlay'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faBars, faTag, faHome, faUser, faUserFriends, faCalendarAlt, faBell } from '@fortawesome/free-solid-svg-icons'
 
 
 function RouteWithSubRoutes(route) {
@@ -79,7 +76,7 @@ class App extends Component {
                 $('body #main .wrapper .sidebar .sidebar-title span').show()
                 $('body #main .wrapper .sidebar .sidebar-content ul li span').show()
             },    
-            150
+            175
         )
     }
 
@@ -99,6 +96,7 @@ class App extends Component {
     render(){
         const {sidebarStatus} = this.state
         const routes = bundle.routes
+
         return (
             <Router>
                 <div className="wrapper">
@@ -120,86 +118,14 @@ class App extends Component {
                         
 
                         {/* Navbar */}
-                        <nav className="navbar navbar-expand-lg navbar-light bg-transparent head-navbar">
-                            <a className="navbar-brand" href="#" onClick={ ()=> {this.handleSidebarClick(sidebarStatus)} }>
-                                <FontAwesomeIcon icon={faBars}/>
-                            </a>
-    
-                            <ul className="navbar-nav ml-auto">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span className="pr-2"><FontAwesomeIcon icon={faBell} className="fa-fw" /></span>
-                                    </a>
-                                    <div className="dropdown-menu  dropdown-menu-right notification" aria-labelledby="navbarDropdown">
-                                        <h5 className="dropdown-item title">Notification</h5>
-                                        <div className="dropdown-divider"></div>
-                                        <div className="dropdown-item" href="#">
-                                            <div className="notification-title">
-                                                <span className="mr-2 badge"><FontAwesomeIcon icon={faTag} className="fa-fw mr-2"/>Toserba Yogya</span>
-                                                <span className="mr-2">Septian</span>
-                                                <span className="float-right">20 Juni 2019</span>
-                                            </div>
-                                            <div className="notification-body">
-                                                <p>
-                                                    Issue  :  -  issue   : if run "  php bin/magento catalog:image:resize"     
-                                                    and get error message  "area code already set"     
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="dropdown-item" href="#">
-                                            <div className="notification-title">
-                                                <span className="mr-2 badge"><FontAwesomeIcon icon={faTag} className="fa-fw mr-2"/>Toserba Yogya</span>
-                                                <span className="mr-2">Septian</span>
-                                                <span className="float-right">20 Juni 2019</span>
-                                            </div>
-                                            <div className="notification-body">
-                                                <p>
-                                                    Issue  :  -  issue   : if run "  php bin/magento catalog:image:resize"     
-                                                    and get error message  "area code already set"     
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="dropdown-item" href="#">
-                                            <div className="notification-title">
-                                                <span className="mr-2 badge"><FontAwesomeIcon icon={faTag} className="fa-fw mr-2"/>Toserba Yogya</span>
-                                                <span className="mr-2">Septian</span>
-                                                <span className="float-right">20 Juni 2019</span>
-                                            </div>
-                                            <div className="notification-body">
-                                                <p>
-                                                    Issue  :  -  issue   : if run "  php bin/magento catalog:image:resize"     
-                                                    and get error message  "area code already set"     
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="dropdown-item" href="#">
-                                            <div className="notification-title">
-                                                <span className="mr-2 badge"><FontAwesomeIcon icon={faTag} className="fa-fw mr-2"/>Toserba Yogya</span>
-                                                <span className="mr-2">Septian</span>
-                                                <span className="float-right">20 Juni 2019</span>
-                                            </div>
-                                            <div className="notification-body">
-                                                <p>
-                                                    Issue  :  -  issue   : if run "  php bin/magento catalog:image:resize"     
-                                                    and get error message  "area code already set"     
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <FontAwesomeIcon icon={faUser} className="fa-fw mr-3" />
-                                    </a>
-                                    <div className="dropdown-menu  dropdown-menu-right account" aria-labelledby="navbarDropdown">
-                                        <a className="dropdown-item" href="#">Profile</a>
-                                        <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="#"><span className="btn btn-danger btn-block">Logout</span></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
+                        <Navbar>
+                            <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}} />
 
+                            <NavbarRight>
+                                <NavbarNotification/>
+                                <NavbarDropdown/>
+                            </NavbarRight>
+                        </Navbar>
 
                         <div className="inner-content">
                             <Switch>
