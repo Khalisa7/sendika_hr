@@ -37,6 +37,7 @@ class App extends Component {
     constructor(props){
         super(props)
         this.state = {
+            laoding: true,
             sidebarStatus : true
         }
 
@@ -73,16 +74,16 @@ class App extends Component {
         document.body.classList.remove('sidebar-mini')
         setTimeout(
             function(){ 
-                $('body #main .wrapper .sidebar .sidebar-title span').show()
-                $('body #main .wrapper .sidebar .sidebar-content ul li span').show()
+                $('body .sidebar .sidebar-title span').show()
+                $('body .sidebar .sidebar-content ul li span').show()
             },    
             175
         )
     }
 
     hideOverlay(){
-        $('body #main .wrapper .sidebar .sidebar-title span').hide()
-        $('body #main .wrapper .sidebar .sidebar-content ul li span').hide()
+        $('body .sidebar .sidebar-title span').hide()
+        $('body .sidebar .sidebar-content ul li span').hide()
         setTimeout(
             function(){
                 document.body.classList.add('sidebar-mini') 
@@ -99,41 +100,40 @@ class App extends Component {
 
         return (
             <Router>
-                <div className="wrapper">
-                    {/* Overlay */}
-                    <Overlay click={ ()=> {this.handleOverlayClick()} }/>
+                
+                {/* Overlay */}
+                <Overlay click={ ()=> {this.handleOverlayClick()} }/>
 
 
-                    {/* Sidebar */}
-                    <Sidebar active={sidebarStatus}>
-                        <Sidebar_Logo 
-                            firstName={bundle.brand.firstName} 
-                            lastName={bundle.brand.lastName} />
-                        <Sidebar_Content menu={bundle.sidebar} />
-                    </Sidebar>
+                {/* Sidebar */}
+                <Sidebar active={sidebarStatus}>
+                    <Sidebar_Logo 
+                        firstName={bundle.brand.firstName} 
+                        lastName={bundle.brand.lastName} />
+                    <Sidebar_Content menu={bundle.sidebar} />
+                </Sidebar>
+                
+
+                {/* Content */}
+                <div className="content">
                     
-    
-                    {/* Content */}
-                    <div className="content">
-                        
 
-                        {/* Navbar */}
-                        <Navbar>
-                            <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}} />
+                    {/* Navbar */}
+                    <Navbar>
+                        <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}} />
 
-                            <NavbarRight>
-                                <NavbarNotification/>
-                                <NavbarDropdown/>
-                            </NavbarRight>
-                        </Navbar>
+                        <NavbarRight>
+                            <NavbarNotification/>
+                            <NavbarDropdown/>
+                        </NavbarRight>
+                    </Navbar>
 
-                        <div className="inner-content">
-                            <Switch>
-                                {routes.map((route, i) => (
-                                    <RouteWithSubRoutes key={i} {...route} />
-                                ))}
-                            </Switch>
-                        </div>
+                    <div className="inner-content">
+                        <Switch>
+                            {routes.map((route, i) => (
+                                <RouteWithSubRoutes key={i} {...route} />
+                            ))}
+                        </Switch>
                     </div>
                 </div>
             </Router>

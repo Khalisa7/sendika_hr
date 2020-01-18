@@ -97,4 +97,3 @@ module.exports = {
         })
     ]
 }
-// console.log(path);

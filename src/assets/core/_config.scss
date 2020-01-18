@@ -2,9 +2,15 @@
 
 $break-min-large: 768px;
 $primary-color: #009f61;
+$secondary-color: #29d345;
 
 *, ::after, ::before{
     box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100%;
 }
 a{
     color: #303F9F;

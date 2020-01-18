@@ -17,7 +17,7 @@ import { faBell, faTag, faUser, faBars, faArrowLeft } from '@fortawesome/free-so
 
 function Navbar(props){
     return(
-        <nav className="navbar navbar-expand-lg navbar-light bg-transparent head-navbar">
+        <nav className="navbar navbar-expand-lg navbar-light head-navbar">
             {props.children}
         </nav>
     )
