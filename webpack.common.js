@@ -3,6 +3,9 @@ const HWP   = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const DWP   = require('dotenv-webpack');
 const webpack = require("webpack");
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 require("@babel/polyfill");
 
@@ -20,6 +23,11 @@ module.exports = {
 
     // Disable Caching
     cache: false,
+
+    // Optimizer
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
 
     // Module Point
     module  : {
@@ -51,12 +59,13 @@ module.exports = {
                 }
             ]
         },{
-            test: /\.(scss|css)$/,
+            test: /\.(sa|sc|c)ss$/,
             use: [
-                "style-loader", 
-                "css-loader",
-                "sass-loader"
-            ]
+                MiniCssExtractPlugin.loader,
+                { loader: "css-loader", options: { sourceMap: true, importLoaders: 1 } },
+                { loader: "sass-loader", options: { sourceMap: true } },
+
+            ],
         },{
             test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
             use: [
@@ -94,6 +103,10 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash].css',
+            chunkFilename: '[id].[hash].css',
+        }),
     ]
 }
