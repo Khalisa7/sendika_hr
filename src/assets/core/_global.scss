@@ -107,7 +107,7 @@ body{
                     }
                     .dropdown-menu.notification, .dropdown-menu.account{
                         box-shadow: 0px 5px 10px 0px #40bd8b7a;
-                        border: 0px solid #58c59a;
+                        
                     }
                     .dropdown-menu.notification{
                         min-width: 22rem;
@@ -115,7 +115,6 @@ body{
                         min-height: 300px;
                         max-height: 340px;
                         overflow-y: scroll;
-                        border: 2px solid $primary-color;
                         
                         .dropdown-item{
                             cursor: pointer;

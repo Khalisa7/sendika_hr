@@ -18,7 +18,8 @@ module.exports = {
     output  : {
         filename    : 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: '/',
+        chunkFilename: '[name].js',
     },
 
     // Disable Caching
@@ -26,7 +27,25 @@ module.exports = {
 
     // Optimizer
     optimization: {
-        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        minimizer: [
+            new TerserJSPlugin({}), 
+            new OptimizeCSSAssetsPlugin({})],
+        splitChunks: {
+            cacheGroups: {
+                default: false,
+                vendors: false,
+                vendor: {
+                    chunks: 'all',
+                    test: /node_modules/
+                },
+                common: {
+                    name: 'common',
+                    chunks: 'async',
+                    reuseExistingChunk: true,
+                    enforce: true
+                }
+            }
+        }
     },
 
     // Module Point

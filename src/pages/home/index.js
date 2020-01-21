@@ -9,9 +9,10 @@
  */
 
  
-import React, { Component, useState } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEllipsisV, faUser, faBell, faTag, faCircle, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { Tabs, Tabs_Nav, Tabs_NavLink, Tabs_ContentWrapper, Tabs_ContentChild } from '@src/component/tabs'
 
 function Home(props){
 
@@ -38,7 +39,12 @@ function Home(props){
                             </div>
                         </div>
                     </div>
-                    <div className="profile-detail">
+                    <Tabs className="employee-profile">
+                        <Tabs_Nav>
+                            <Tabs_NavLink>Data Karyawan</Tabs_NavLink>
+                        </Tabs_Nav>
+                    </Tabs>
+                    {/* <div className="profile-detail">
                         <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li className="nav-item">
                                 <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Data Pribadi</a>
@@ -53,14 +59,30 @@ function Home(props){
                         <div className="tab-content" id="pills-tabContent">
                             <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                 <div className="row">
+                                    <div className="col-3"><p>Nomor Induk Pegawai</p></div>
+                                    <div className="col-9"><p>Icube - 34567898765467</p></div>
+                                </div>
+                                <div className="row">
                                     <div className="col-3"><p>Nama</p></div>
                                     <div className="col-9"><p>Herlina Sunaryanto</p></div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-3"><p>Email</p></div>
+                                    <div className="col-9"><p>sunaryanto@icube.us</p></div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-3"><p>Status Kontrak</p></div>
+                                    <div className="col-9"><p>Internship</p></div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-3"><p>Tanggal Kontrak</p></div>
+                                    <div className="col-9"><p>20 Januari 2017</p></div>
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
                             <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

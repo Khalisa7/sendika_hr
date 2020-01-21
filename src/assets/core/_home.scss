@@ -1,5 +1,5 @@
 .home-dashboard{
-    border: 2px solid $primary-color;
+    border: 1px solid $primary-color;
     height: 960px;
     background: white;
     box-shadow: 0px 5px 10px 0px #40bd8b7a;
@@ -30,20 +30,22 @@
             }
         }
     }
-    .profile-detail{
+    .employee-profile{
         margin-top: 50px;
         .nav-pills{
             border-bottom: 1px solid whitesmoke;
             .nav-link{
                 border-radius: 0;
                 color: black;
-                padding: 10px 25px;
+                padding: 15px 25px;
                 font-size: 14px;
                 font-weight: 500;
                 transform: .5s;
                 &.active{
                     background: none;
                     color: $primary-color;
+                    border-bottom: px solid $primary-color;
+                    border-bottom: 3px solid $primary-color;
                 }
             }
         }

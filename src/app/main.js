@@ -14,6 +14,7 @@ import React,{Component} from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { bundle } from '@src/interfaces'
+import { browse } from '@src/routes'
 
 import { Sidebar, Sidebar_Logo, Sidebar_Content } from '@src/component/sidebar'
 import { Navbar, NavbarBrand, NavbarRight, NavbarDropdown, NavbarNotification } from '@src/component/navbar'
@@ -96,7 +97,7 @@ class App extends Component {
 
     render(){
         const {sidebarStatus} = this.state
-        const routes = bundle.routes
+        const routes = browse.routes
 
         return (
             <Router>
