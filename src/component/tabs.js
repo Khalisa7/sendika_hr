@@ -38,10 +38,10 @@ function Tabs_ContentWrapper(props){
     )
 }
 
-function Tabs_Contentchildren(props){
+function Tabs_ContentChildren(props){
     return(
         <Fragment>
-            <div className={props.active? "tab-pane fade show active" : "tab-pane fade"} id={props.id} role="tabpanel">
+            <div className={props.active === 1 ? "tab-pane fade show active" : "tab-pane fade"} id={props.id} role="tabpanel">
                 {props.children}              
             </div>
         </Fragment>
@@ -53,5 +53,5 @@ export {
     Tabs_Nav, 
     Tabs_NavLink, 
     Tabs_ContentWrapper, 
-    Tabs_Contentchildren
+    Tabs_ContentChildren
 }

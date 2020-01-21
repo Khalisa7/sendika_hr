@@ -6,6 +6,7 @@ const webpack = require("webpack");
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
 
 require("@babel/polyfill");
 
@@ -19,7 +20,7 @@ module.exports = {
         filename    : 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
-        chunkFilename: '[name].js',
+        chunkFilename: '[name].min.js',
     },
 
     // Disable Caching
@@ -127,5 +128,6 @@ module.exports = {
             filename: '[name].[hash].css',
             chunkFilename: '[id].[hash].css',
         }),
+        new AsyncChunkNames()
     ]
 }

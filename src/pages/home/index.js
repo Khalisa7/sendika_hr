@@ -12,7 +12,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
-import { Tabs, Tabs_Nav, Tabs_NavLink, Tabs_ContentWrapper, Tabs_ContentChild } from '@src/component/tabs'
+import { Tabs, Tabs_Nav, Tabs_NavLink, Tabs_ContentWrapper, Tabs_ContentChildren } from '@src/component/tabs'
 
 function Home(props){
 
@@ -43,21 +43,8 @@ function Home(props){
                         <Tabs_Nav>
                             <Tabs_NavLink>Data Karyawan</Tabs_NavLink>
                         </Tabs_Nav>
-                    </Tabs>
-                    {/* <div className="profile-detail">
-                        <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li className="nav-item">
-                                <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Data Pribadi</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Hubungan Kerja</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Tanggungan</a>
-                            </li>
-                        </ul>
-                        <div className="tab-content" id="pills-tabContent">
-                            <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <Tabs_ContentWrapper id="employee-profile">
+                            <Tabs_ContentChildren active={1}>
                                 <div className="row">
                                     <div className="col-3"><p>Nomor Induk Pegawai</p></div>
                                     <div className="col-9"><p>Icube - 34567898765467</p></div>
@@ -78,11 +65,9 @@ function Home(props){
                                     <div className="col-3"><p>Tanggal Kontrak</p></div>
                                     <div className="col-9"><p>20 Januari 2017</p></div>
                                 </div>
-                            </div>
-                            <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                            <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-                        </div>
-                    </div> */}
+                            </Tabs_ContentChildren>
+                        </Tabs_ContentWrapper>
+                    </Tabs>
                 </div>
             </div>
         </div>
