@@ -32,18 +32,18 @@ module.exports = {
             new TerserJSPlugin({}), 
             new OptimizeCSSAssetsPlugin({})],
         splitChunks: {
+
             cacheGroups: {
                 default: false,
                 vendors: false,
                 vendor: {
                     chunks: 'all',
-                    test: /node_modules/
+                    test: /[\\/]node_modules[\\/]/,
                 },
                 common: {
                     name: 'common',
+                    test: /[\\/]src[\\/]/,
                     chunks: 'async',
-                    reuseExistingChunk: true,
-                    enforce: true
                 }
             }
         }
