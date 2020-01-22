@@ -39,6 +39,7 @@ module.exports = {
                 vendor: {
                     chunks: 'all',
                     test: /[\\/]node_modules[\\/]/,
+                    
                 },
                 common: {
                     name: 'common',
@@ -116,7 +117,8 @@ module.exports = {
     plugins  : [
         new HWP ({ 
                 template    : path.join(__dirname, '/src/template/index.html'),
-                filename    : './index.html'
+                filename    : './index.html',
+                favicon     : './src/template/favicon.png'
             }),
         new DWP ({ path: './.env.development' }),
         new CleanWebpackPlugin(),

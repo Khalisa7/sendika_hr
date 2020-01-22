@@ -1,6 +1,6 @@
 .home-dashboard{
     border: 1px solid $primary-color;
-    height: 960px;
+    min-height: 960px;
     background: white;
     box-shadow: 0px 5px 10px 0px #40bd8b7a;
     border-radius: 5px;
@@ -8,13 +8,13 @@
     .profile-silluet{
         margin-bottom: 50px;
         .initial-box{
-            height: 100px;
-            width: 100px;
-            background: $primary-color;
+            height: 150px;
+            width: 150px;
+            background: $secondary-color;
             margin-right: 30px;
             h1{
                 text-align: center;
-                line-height: 100px;
+                line-height: 150px;
                 color: white;
             }
         }
@@ -41,6 +41,7 @@
                 font-size: 14px;
                 font-weight: 500;
                 transform: .5s;
+                cursor: pointer;
                 &.active{
                     background: none;
                     color: $primary-color;

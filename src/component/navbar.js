@@ -9,7 +9,7 @@
  */
 
 
-import React, { Component, useState } from 'react'
+import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faTag, faUser, faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -17,26 +17,32 @@ import { faBell, faTag, faUser, faBars, faArrowLeft } from '@fortawesome/free-so
 
 function Navbar(props){
     return(
-        <nav className="navbar navbar-expand-lg navbar-light head-navbar">
-            {props.children}
-        </nav>
+        <Fragment>
+            <nav className="navbar navbar-expand-lg navbar-light head-navbar">
+                {props.children}
+            </nav>
+        </Fragment>
     )
 }
 
 function NavbarBrand(props){
     return(
-        <a className="navbar-brand" href="#" onClick={props.click} >
-            <FontAwesomeIcon icon={props.active?faBars:faArrowLeft}/>
-            {props.children}
-        </a>
+        <Fragment>
+            <a className="navbar-brand" href="#" onClick={props.click} >
+                <FontAwesomeIcon icon={props.active?faBars:faArrowLeft}/>
+                {props.children}
+            </a>
+        </Fragment>
     )
 }
 
 function NavbarRight(props){
     return(
-        <ul className="navbar-nav ml-auto">
-            {props.children}
-        </ul>
+        <Fragment>
+            <ul className="navbar-nav ml-auto">
+                {props.children}
+            </ul>
+        </Fragment>
     )
 }
 

@@ -9,7 +9,7 @@
  */
 
 
-import React, { Component, useState } from 'react'
+import React, { Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -28,11 +28,13 @@ function Overlay(props){
     }
     
     return(
-        <div className={classNames} onClick={props.click}>
-            <span>
-                <FontAwesomeIcon icon={faTimes} />
-            </span>
-        </div>
+        <Fragment>
+            <div className={classNames} onClick={props.click}>
+                <span>
+                    <FontAwesomeIcon icon={faTimes} />
+                </span>
+            </div>
+        </Fragment>
     )
     
 }
