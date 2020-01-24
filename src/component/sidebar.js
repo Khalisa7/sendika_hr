@@ -9,7 +9,7 @@
  */
 
 
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
@@ -32,12 +32,14 @@ function Sidebar(props){
 // Logo On Sidebar
 function Sidebar_Logo(props){
     return(
-        <div className="sidebar-title">
-            <h4>
-                <span>{props.firstName}</span>
-                {props.lastName}
-            </h4>
-        </div>
+        <Fragment>
+            <div className="sidebar-title">
+                <h4>
+                    <span>{props.firstName}</span>
+                    {props.lastName}
+                </h4>
+            </div>
+        </Fragment>
     )
 }
 
@@ -47,14 +49,16 @@ function Sidebar_Logo(props){
 // Profile Picture On Sidebar If Exists
 function Sidebar_ProfilePicture(props){
     return(
-        <div className="sidebar-profile">
-            <div className="sidebar-picture">
-                <img src={props.picture}  />
+        <Fragment>
+            <div className="sidebar-profile">
+                <div className="sidebar-picture">
+                    <img src={props.picture}  />
+                </div>
+                
+                
+                <p className="sidebar-username">Herlina Sunaryanto</p>
             </div>
-            
-            
-            <p className="sidebar-username">Herlina Sunaryanto</p>
-        </div>
+        </Fragment>
     )
 }
 
@@ -64,17 +68,19 @@ function Sidebar_ProfilePicture(props){
 function Sidebar_Content(props){
     let menu = props.menu
     return(
-        <div className="sidebar-content">
-            <ul className="menu">
-                {menu.map((data, key)=>{
-                    return <Sidebar_SingleMenu 
-                        key={key}
-                        active={data.active} 
-                        url={data.link} i
-                        icon={data.icons}>{data.label}</Sidebar_SingleMenu>
-                })}
-            </ul>
-        </div>
+        <Fragment>
+            <div className="sidebar-content">
+                <ul className="menu">
+                    {menu.map((data, key)=>{
+                        return <Sidebar_SingleMenu 
+                            key={key}
+                            active={data.active} 
+                            url={data.link} i
+                            icon={data.icons}>{data.label}</Sidebar_SingleMenu>
+                    })}
+                </ul>
+            </div>
+        </Fragment>
     )
 }
 
@@ -92,15 +98,17 @@ function Sidebar_SingleMenu(props){
     
     
     return(
-        <li className={classNames}>
-            <Link to={props.url} className="menu-item">
-                {props.icon}
-                <span>
-                    {props.children}
-                </span>
-                <span className="position-relative float-right"><FontAwesomeIcon icon={faCaretRight}  /></span>
-            </Link>
-        </li>
+        <Fragment>
+            <li className={classNames}>
+                <Link to={props.url} className="menu-item">
+                    {props.icon}
+                    <span>
+                        {props.children}
+                    </span>
+                    <span className="position-relative float-right"><FontAwesomeIcon icon={faCaretRight}  /></span>
+                </Link>
+            </li>
+        </Fragment>
     )
 }
 

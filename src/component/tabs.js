@@ -33,7 +33,7 @@ function Tabs_NavLink(props){
 function Tabs_ContentWrapper(props){
     return(
         <Fragment>
-            <div className="tab-content" id={props.id}>
+            <div className="tab-content mt-5" id={props.id}>
                 {props.children}
             </div>
         </Fragment>
