@@ -1,59 +1,41 @@
-import React from 'react'
-import loadable from 'react-loadable'
 
-const pages = {
-    "loadingComponent" : () => {
-        console.log('loading')
-        return (
-            <h1>Hai</h1>
-        )
-    },
-    "home" : () => {
-        return import('@src/pages/home')
-    },
-    "notification" : () => {
-        console.log('notification')
-        return (
-            <h1>Hai</h1>
-        )
-    }
+
+import React, { Fragment } from 'react'
+import Loadable from 'react-loadable'
+import { Switch, Route } from "react-router-dom";
+import {BeatLoader} from 'react-spinners/BarLoader'
+
+
+
+const Home = Loadable({
+    loader: () =>
+        new Promise((resolve, reject) => {
+            setTimeout(() => resolve( import('@src/pages/home') ), 2000);
+        }),
+    loading: ({ pastDelay }) => (pastDelay ? <div>Loading...</div> : null),
+    delay: 50
+});
+
+const Notification = Loadable({
+    loader: () =>
+        new Promise((resolve, reject) => {
+            setTimeout(() => resolve( import('@src/pages/notification') ), 2000);
+        }),
+    loading: ({ pastDelay }) => (pastDelay ? <div>Loading...</div> : null),
+    delay: 50
+});
+
+
+
+
+function Routes () {
+    return(
+        <Fragment>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/notification" component={Notification} />
+            </Switch>
+        </Fragment>
+    )
 }
-
-
-const asyncImportPages = {
-    "home" : loadable({
-        loader : pages.home,
-        loading: pages.loadingComponent
-    }),
-}
-
-const browse = {
-    "routes"    : [
-        {
-            path: "/",
-            component: asyncImportPages.home,
-            routes:[
-                {
-                    path: "/sandwiches",
-                    component: asyncImportPages.home
-                },
-                {
-                    path: "/tacos",
-                    component: asyncImportPages.home,
-                    routes: [
-                        {
-                            path: "/tacos/bus",
-                            component: asyncImportPages.home
-                        },
-                        {
-                            path: "/tacos/cart",
-                            component: asyncImportPages.home
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-}
-
-export {browse} 
+export {Routes} 

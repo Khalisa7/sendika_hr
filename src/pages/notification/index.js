@@ -9,13 +9,13 @@
  */
 
  
-import React, { Fragment, Component} from 'react'
+import React, { useState, Fragment, Component} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { data } from '@src/interfaces'
 import { Tabs, Tabs_Nav, Tabs_NavLink, Tabs_ContentWrapper, Tabs_ContentChildren } from '@src/component/tabs'
 
-class Home extends Component{
+class Notification extends Component{
     
     constructor(props){
         super(props)
@@ -39,7 +39,7 @@ class Home extends Component{
                     <div className="row justify-content-center">
                         <div className="col-md-8 home-dashboard">
                             <div className="page-title my-4">
-                                <h3>Dashboard</h3>
+                                <h3>Bukan Dashboard</h3>
                             </div>
                             <div className="profile-silluet">
                                 <div className="media">
@@ -147,4 +147,4 @@ class Home extends Component{
     }
 }
 
-export default Home
+export default Notification

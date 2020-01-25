@@ -11,26 +11,16 @@
 
  
 import React,{Component} from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 
 import { bundle } from '@src/interfaces'
-import { browse } from '@src/routes'
+import { Routes } from '@src/routes'
 
 import { Sidebar, Sidebar_Logo, Sidebar_Content } from '@src/component/sidebar'
 import { Navbar, NavbarBrand, NavbarRight, NavbarDropdown, NavbarNotification } from '@src/component/navbar'
 import { Overlay } from '@src/component/overlay'
 
 
-function RouteWithSubRoutes(route) {
-    return (
-        <Route
-            path={route.path}
-            render={props => (
-            <route.component {...props} routes={route.routes} />
-            )}
-        />
-    );
-}
   
 
 class App extends Component {
@@ -97,7 +87,6 @@ class App extends Component {
 
     render(){
         const {sidebarStatus} = this.state
-        const routes = browse.routes
 
         return (
             <Router>
@@ -130,11 +119,7 @@ class App extends Component {
                     </Navbar>
 
                     <div className="inner-content">
-                        <Switch>
-                            {routes.map((route, i) => (
-                                <RouteWithSubRoutes key={i} {...route} />
-                            ))}
-                        </Switch>
+                        <Routes/>
                     </div>
                 </div>
             </Router>

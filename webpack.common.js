@@ -13,42 +13,20 @@ require("@babel/polyfill");
 module.exports = {
 
     // Entry Point
-    entry   : ["@babel/polyfill", path.join(__dirname, '/index.js')],
+    entry   : [
+        "@babel/polyfill",
+        "core-js/modules/es.promise",
+        "core-js/modules/es.array.iterator",
+        path.join(__dirname, '/index.js')
+    ],
 
     // Output Point
     output  : {
         filename    : 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
-        chunkFilename: '[name].min.js',
     },
 
-    // Disable Caching
-    cache: false,
-
-    // Optimizer
-    optimization: {
-        minimizer: [
-            new TerserJSPlugin({}), 
-            new OptimizeCSSAssetsPlugin({})],
-        splitChunks: {
-
-            cacheGroups: {
-                default: false,
-                vendors: false,
-                vendor: {
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]/,
-                    
-                },
-                common: {
-                    name: 'common',
-                    test: /[\\/]src[\\/]/,
-                    chunks: 'async',
-                }
-            }
-        }
-    },
 
     // Module Point
     module  : {
@@ -130,6 +108,5 @@ module.exports = {
             filename: '[name].[hash].css',
             chunkFilename: '[id].[hash].css',
         }),
-        new AsyncChunkNames()
     ]
 }
