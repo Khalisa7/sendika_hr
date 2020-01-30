@@ -10,7 +10,7 @@
 
 
 import React, { useState, Fragment } from 'react'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -36,7 +36,6 @@ function Sidebar_Logo(props){
             <div className="sidebar-title">
                 <h4>
                     <span>{props.firstName}</span>
-                    {props.lastName}
                 </h4>
             </div>
         </Fragment>
@@ -66,18 +65,12 @@ function Sidebar_ProfilePicture(props){
 
 // Sidebar Content Wrapper
 function Sidebar_Content(props){
-    let menu = props.menu
+
     return(
         <Fragment>
             <div className="sidebar-content">
                 <ul className="menu">
-                    {menu.map((data, key)=>{
-                        return <Sidebar_SingleMenu 
-                            key={key}
-                            active={data.active} 
-                            url={data.link} i
-                            icon={data.icons}>{data.label}</Sidebar_SingleMenu>
-                    })}
+                    {props.children}
                 </ul>
             </div>
         </Fragment>
@@ -89,7 +82,7 @@ function Sidebar_Content(props){
 function Sidebar_SingleMenu(props){
     let classNames = ''
 
-    if(props.active){
+    if(props.active === props.i){
         classNames = 'active'
     }else{
         classNames = ''
@@ -100,12 +93,11 @@ function Sidebar_SingleMenu(props){
     return(
         <Fragment>
             <li className={classNames}>
-                <Link to={props.url} className="menu-item">
+                <Link to={props.url}  onClick={()=>{props.onclick()}} className="menu-item" >
                     {props.icon}
                     <span>
                         {props.children}
                     </span>
-                    <span className="position-relative float-right"><FontAwesomeIcon icon={faCaretRight}  /></span>
                 </Link>
             </li>
         </Fragment>
@@ -118,4 +110,4 @@ function Sidebar_SingleMenu(props){
 
 
 
-export {Sidebar, Sidebar_Content, Sidebar_Logo, Sidebar_ProfilePicture }
+export {Sidebar, Sidebar_Content, Sidebar_Logo, Sidebar_ProfilePicture, Sidebar_SingleMenu }

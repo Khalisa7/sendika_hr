@@ -13,16 +13,16 @@ const Home = Loadable({
             setTimeout(() => resolve( import('@src/pages/home') ), 2000);
         }),
     loading: ({ pastDelay }) => (pastDelay ? <div>Loading...</div> : null),
-    delay: 50
+    delay: 1000
 });
 
-const Notification = Loadable({
+const Profile = Loadable({
     loader: () =>
         new Promise((resolve, reject) => {
-            setTimeout(() => resolve( import('@src/pages/notification') ), 2000);
+            setTimeout(() => resolve( import('@src/pages/profile') ), 2000);
         }),
     loading: ({ pastDelay }) => (pastDelay ? <div>Loading...</div> : null),
-    delay: 50
+    delay: 1000
 });
 
 
@@ -33,7 +33,7 @@ function Routes () {
         <Fragment>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/notification" component={Notification} />
+                <Route exact path="/profile" component={Profile} />
             </Switch>
         </Fragment>
     )

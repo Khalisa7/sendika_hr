@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Niramit:300,400,500,600,700|Roboto:300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&display=swap|Open+Sans:300,400,500,700,800');
 
 $break-min-large: 768px;
-$primary-color: #009f61;
-$secondary-color: #33c584;
+$primary-color: white;
+$secondary-color: #06bb69;
+$third-color: #e9fff5;
+$grey-color: #535353;
 
 *, ::after, ::before{
     box-sizing: border-box;
@@ -14,13 +16,18 @@ html, body {
 }
 a{
     color: #303F9F;
+    &:hover{
+        text-decoration: none;
+    }
 }
-h1,h2,h3,h4,h5,h6, a{
+h1,h2,h3,h4,h5,h6 {
     text-transform: capitalize;
-}
-p{
-    word-wrap:break-word;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+p, a{
+    word-wrap:break-word;
+    font-family: 'Open Sans', sans-serif;
 }
 .breadcrumb{
     color: black;
@@ -31,7 +38,7 @@ p{
     background: #303F9F;
 }
 // transition
-.sidebar, .content{
+.sidebar, .content, .quick-tools{
     -webkit-transition:300ms linear;
     -moz-transition:300ms linear;
     -o-transition:300ms linear;
@@ -39,7 +46,19 @@ p{
     transition:300ms linear;
 }
 
+.bg-primary{
+    background: $primary-color !important;
+}
 
+.bg-secondary{
+    background: $secondary-color !important;
+}
+.btn.bg-secondary:hover{
+    background: $third-color !important;
+}
+.container{
+    max-width: 1000px;
+}
 
 @media screen and (min-device-width : $break-min-large) {
     p, .btn, .dropdown-menu{
@@ -47,4 +66,7 @@ p{
     }
 }
 @media screen and (max-device-width : $break-min-large) {
+    p, .btn, .dropdown-menu{
+        font-size: 14px;
+    }
 }

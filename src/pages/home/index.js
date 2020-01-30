@@ -10,138 +10,116 @@
 
  
 import React, { Fragment, Component} from 'react'
+import { Container } from '@src/component/container'
+import { Row } from '@src/component/row'
+import { Col } from '@src/component/col'
+import { ProfilePic } from '@src/component/profilepic'
+import { Card, CardHeader, CardBody } from '@src/component/card'
+import { Media, MediaBody } from '@src/component/media'
+import img from '@src/assets/img/profile.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
-import { data } from '@src/interfaces'
-import { Tabs, Tabs_Nav, Tabs_NavLink, Tabs_ContentWrapper, Tabs_ContentChildren } from '@src/component/tabs'
+import { faLuggageCart, faIdCard, faHandHoldingHeart, faFileCode, faGem, faMobile } from '@fortawesome/free-solid-svg-icons'
+
 
 class Home extends Component{
     
     constructor(props){
         super(props)
-        this.state = {
-            tabActive : 1
-        }
     }
 
-    setTabActive(val){
-        this.setState({
-            tabActive : val
-        })
+    componentDidMount(){
+        window.scrollTo(0,0);
     }
 
     render(){
-        const {tabActive} = this.state
-
         return(
             <Fragment>
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-md-8 home-dashboard">
-                            <div className="page-title my-4">
-                                <h3>Dashboard</h3>
-                            </div>
-                            <div className="profile-silluet">
-                                <div className="media">
-                                    <div className="initial-box">
-                                        <h1>HS</h1>
-                                    </div>
-                                    <div className="media-body">
-                                        <h5 className="mt-0">Herlina Sunaryanto</h5>
-                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. </p>
-                                        <br/>
-                                        <p>
-                                            <span className="mr-2"><FontAwesomeIcon icon={faEnvelope} className="fa-fw mr-2" />sunaryanto@icube.us</span>
-                                            <span className="mr-2"><FontAwesomeIcon icon={faPhone} className="fa-fw mr-2" />098765434567</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <Tabs className="employee-profile">
-                                <Tabs_Nav>
-                                    <Tabs_NavLink active={tabActive} num={1} target={"profile-tabs"}>
-                                        Data Diri
-                                    </Tabs_NavLink>
-                                    <Tabs_NavLink active={tabActive} num={2} target={"relation-tabs"}>
-                                        Hubungan
-                                    </Tabs_NavLink>
-                                    <Tabs_NavLink active={tabActive} num={3} target={"dependents-tabs"}>
-                                        Tanggungan
-                                    </Tabs_NavLink>
-                                    <Tabs_NavLink active={tabActive} num={4} target={"emergency-number-tabs"}>
-                                        Kontak Darurat
-                                    </Tabs_NavLink>
-                                </Tabs_Nav>
-                                <Tabs_ContentWrapper id="employee-profile">
-                                    <Tabs_ContentChildren num={1} id={"profile-tabs"}>
-                                        { data.profile.map((res, key)=>{
-                                            return(
-                                                <div className="row" key={key}>
-                                                    <div className="col-3"><p>{res.label}</p></div>
-                                                    <div className="col-9"><p>{res.value}</p></div>
-                                                </div>
-                                            )
-                                        })}
-                                    </Tabs_ContentChildren>
-                                    <Tabs_ContentChildren num={2} id={"relation-tabs"}>
-                                        { data.relation.map((res, key)=>{
-                                            return(
-                                                <div className="row" key={key}>
-                                                    <div className="col-3"><p>{res.label}</p></div>
-                                                    <div className="col-9"><p>{res.value}</p></div>
-                                                </div>
-                                            )
-                                        })}
-                                    </Tabs_ContentChildren>
-                                    <Tabs_ContentChildren num={3} id={"dependents-tabs"}>
-                                        { Object.keys(data.dependents).map((res, key)=>{
-                                            return (
-                                                <div className="mb-4" key={key}>
-                                                    {data.dependents[res].map((res, key)=>{
-                                                        return (
-                                                            <div className="row" key={key}>
-                                                                <div className="col-3"><p>{res.label}</p></div>
-                                                                <div className="col-9"><p>{res.value}</p></div>
-                                                            </div>
-                                                        )
-                                                    })}
-                                                </div>
-                                            )
-                                        }) }
-                                    </Tabs_ContentChildren>
-                                    <Tabs_ContentChildren num={4} id={"emergency-number-tabs"}>
-                                        { Object.keys(data.emergency_number).map((res, key)=>{
-                                            return (
-                                                <div className="mb-4" key={key}>
-                                                    {data.emergency_number[res].map((res, key)=>{
-                                                        return (
-                                                            <div className="row" key={key}>
-                                                                <div className="col-3"><p>{res.label}</p></div>
-                                                                <div className="col-9"><p>{res.value}</p></div>
-                                                            </div>
-                                                        )
-                                                    })}
-                                                </div>
-                                            )
-                                        }) }
-                                    </Tabs_ContentChildren>
-                                </Tabs_ContentWrapper>
-                            </Tabs>
-                        </div>
-                        <div className="col-md-4 home-cards">
-                            <div className="card mb-3">
-                                <div className="card-body">
-                                    <h5>Saldo Cuti</h5>
-                                </div>
-                            </div>
-                            <div className="card mb-3">
-                                <div className="card-body">
-                                    <h5>Sakit</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Container style={['home']}>
+                    <Row style={['justify-content-center']}>
+                        <Col style={['col-12', 'col-md-4', 'mb-4', 'department-card']}>
+                            <Media>
+                                <ProfilePic imgSrc={img} imgAlt={'Herlina Sunaryanto'} style={['mr-3']} />
+                                <MediaBody style={['align-self-end']}>
+                                    <h5 className="mb-1">Herlina Sunaryanto</h5>
+                                    <p>Human Resource Administrator</p>
+                                </MediaBody>
+                            </Media>
+                            <Row style={['mt-3']}>
+                                <Col style={['col-4']}>
+                                    <small>Sisa cuti</small>
+                                    <h6 className="mb-0">14 Hari</h6>
+                                </Col>
+                                <Col style={['col-4']}>
+                                    <small>Cuti terpakai</small>
+                                    <h6 className="mb-0">3 Hari</h6>
+                                </Col>
+                                <Col style={['col-4']}>
+                                    <small>Cuti sakit</small>
+                                    <h6 className="mb-0">2 Hari</h6>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col style={['text-center', 'col-12', 'col-md-8', 'feature-card']}>
+                            <Row>
+                                <Col style={['col-4']}>
+                                    <Card>
+                                        <CardBody>
+                                            <FontAwesomeIcon icon={faLuggageCart} className="fa-fw d-block m-auto"/>
+                                            <h6 className="mb-2 mt-4">Request Time Off</h6>
+                                            <p className="mb-0">Request time off and check your balance</p>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col style={['col-4']}>
+                                    <Card>
+                                        <CardBody>
+                                            <FontAwesomeIcon icon={faIdCard} className="fa-fw d-block m-auto"/>
+                                            <h6 className="mb-2 mt-4">Company's Directory</h6>
+                                            <p className="mb-0">Search for coworkers and their contact info</p>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col style={['col-4']}>
+                                    <Card>
+                                        <CardBody>
+                                            <FontAwesomeIcon icon={faHandHoldingHeart} className="fa-fw d-block m-auto"/>
+                                            <h6 className="mb-2 mt-4">Benefits</h6>
+                                            <p className="mb-0">See which company benefits you are enrolled in</p>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col style={['col-4']}>
+                                    <Card>
+                                        <CardBody>
+                                            <FontAwesomeIcon icon={faFileCode} className="fa-fw d-block m-auto"/>
+                                            <h6 className="mb-2 mt-4">Training</h6>
+                                            <p className="mb-0">Request time off and check your balance</p>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col style={['col-4']}>
+                                    <Card>
+                                        <CardBody>
+                                            <FontAwesomeIcon icon={faGem} className="fa-fw d-block m-auto"/>
+                                            <h6 className="mb-2 mt-4">Goals</h6>
+                                            <p className="mb-0">Search for coworkers and their contact info</p>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col style={['col-4']}>
+                                    <Card>
+                                        <CardBody>
+                                            <FontAwesomeIcon icon={faMobile} className="fa-fw d-block m-auto"/>
+                                            <h6 className="mb-2 mt-4">Mobile Apps</h6>
+                                            <p className="mb-0">See which company benefits you are enrolled in</p>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
             </Fragment>
         )
     }

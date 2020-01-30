@@ -1,7 +1,8 @@
 
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
-import {  faHome, faUser, faCalendarAlt, faBell } from '@fortawesome/free-solid-svg-icons'
+import {  faHome, faCloudMoon } from '@fortawesome/free-solid-svg-icons'
+import {  faUser, faCalendarAlt, faBell, faEnvelope } from '@fortawesome/free-regular-svg-icons'
 
 const bundle = {
     
@@ -19,18 +20,18 @@ const bundle = {
             icons   : <FontAwesomeIcon icon={faHome} className="fa-fw" />
         },
         {
-            name    : "news",
-            label   : "News Feed",
-            link    : "/notification",
-            active  : false,
-            icons   : <FontAwesomeIcon icon={faBell} className="fa-fw" />
-        },
-        {
             name    : "profile",
             label   : "Update Profile",
             link    : "/profile",
             active  : false,
             icons   : <FontAwesomeIcon icon={faUser} className="fa-fw" />
+        },
+        {
+            name    : "news",
+            label   : "News Feed",
+            link    : "/notification",
+            active  : false,
+            icons   : <FontAwesomeIcon icon={faBell} className="fa-fw" />
         },
         {
             name    : "calendar",
@@ -39,8 +40,89 @@ const bundle = {
             active  : false,
             icons   : <FontAwesomeIcon icon={faCalendarAlt} className="fa-fw" />
         },
-    ]
-
+    ],
+    "navbar"    : [
+        {
+            name    : "mail",
+            label   : "Mail",
+            link    : "/mail",
+            active  : false,
+            icons   : <FontAwesomeIcon icon={faEnvelope} className="fa-fw" />
+        },
+        {
+            name    : "notification",
+            label   : "Notification",
+            link    : null,
+            active  : false,
+            icons   : <FontAwesomeIcon icon={faBell} className="fa-fw" />
+        }
+    ],
+    "quick_tools" : {
+        "request_time_off" : [
+            {
+                label : "Time Off Request",
+                icons : <FontAwesomeIcon icon={faCalendarAlt} className="fa-fw mr-3" />,
+                items : [
+                    {
+                        name        : "Ivan D Adi",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "31 Januari 2020",
+                        reasons     : "Annual Leave"
+                    },
+                    {
+                        name        : "Ivan D Adi",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "31 Januari 2020",
+                        reasons     : "Annual Leave"
+                    },
+                    {
+                        name        : "Ivan D Adi",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "31 Januari 2020",
+                        reasons     : "Annual Leave"
+                    },
+                    {
+                        name        : "Ivan D Adi",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "31 Januari 2020",
+                        reasons     : "Annual Leave"
+                    }
+                ]
+            }
+        ],
+        "companys_events" : [
+            {
+                label : "Events",
+                icons : <FontAwesomeIcon icon={faCloudMoon} className="fa-fw mr-3" />,
+                items : [
+                    {
+                        name        : "Senam Bersama",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "20 Januari 2020",
+                        reasons     : "Healty Live"
+                    },
+                    {
+                        name        : "Senam Bersama",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "20 Januari 2020",
+                        reasons     : "Healty Live"
+                    },
+                    {
+                        name        : "Senam Bersama",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "20 Januari 2020",
+                        reasons     : "Healty Live"
+                    },
+                    {
+                        name        : "Senam Bersama",
+                        start_date  : "20 Januari 2020",
+                        end_date    : "20 Januari 2020",
+                        reasons     : "Healty Live"
+                    },
+                ]
+            }
+        ]
+    }
 }
 
 const data = {

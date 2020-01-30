@@ -24,6 +24,10 @@ class Notification extends Component{
         }
     }
 
+    componentDidMount(){
+        window.scrollTo(0,0);
+    }
+
     setTabActive(val){
         this.setState({
             tabActive : val
@@ -127,18 +131,6 @@ class Notification extends Component{
                                     </Tabs_ContentChildren>
                                 </Tabs_ContentWrapper>
                             </Tabs>
-                        </div>
-                        <div className="col-md-4 home-cards">
-                            <div className="card mb-3">
-                                <div className="card-body">
-                                    <h5>Saldo Cuti</h5>
-                                </div>
-                            </div>
-                            <div className="card mb-3">
-                                <div className="card-body">
-                                    <h5>Sakit</h5>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

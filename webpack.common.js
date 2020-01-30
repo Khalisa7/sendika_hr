@@ -27,6 +27,14 @@ module.exports = {
         publicPath: '/',
     },
 
+    optimization: {
+        minimizer: [
+            new TerserJSPlugin({
+                cache: true,
+                parallel: true,
+            }),
+        ],
+    },
 
     // Module Point
     module  : {

@@ -10,14 +10,18 @@
 
 
  
-import React,{Component} from 'react'
+import React,{Component, Fragment} from 'react'
 import { BrowserRouter as Router} from "react-router-dom";
 
 import { bundle } from '@src/interfaces'
 import { Routes } from '@src/routes'
 
-import { Sidebar, Sidebar_Logo, Sidebar_Content } from '@src/component/sidebar'
-import { Navbar, NavbarBrand, NavbarRight, NavbarDropdown, NavbarNotification } from '@src/component/navbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTools, faUser, faNewspaper, faWrench } from '@fortawesome/free-solid-svg-icons'
+import { Sidebar, Sidebar_Logo, Sidebar_Content, Sidebar_SingleMenu } from '@src/component/sidebar'
+import { QuickTools, QuickToolsBody, QuickToolsCaption } from '@src/component/quicktools'
+import { Navbar, NavbarBrand, NavbarRight, NavbarLink} from '@src/component/navbar'
+import { Media, MediaBody } from '@src/component/media'
 import { Overlay } from '@src/component/overlay'
 
 
@@ -29,26 +33,20 @@ class App extends Component {
         super(props)
         this.state = {
             laoding: true,
-            sidebarStatus : true
+            activeRoute : 0,
+            sidebarStatus : true,
+            quickToolsStatus : false
         }
-
-        this.handleSidebarClick = this.handleSidebarClick.bind(this)
     }
 
-    componentDidMount(){
-        if(this.state.sidebarStatus){
-            this.hideOverlay()
-        } 
-    }
-    
     handleSidebarClick(){
         this.setState({
             sidebarStatus: !this.state.sidebarStatus
         },()=>{
             if(this.state.sidebarStatus){
-                this.hideOverlay()
+                this.f_hideSideBar()
             }else{
-                this.showOverlay()
+                this.f_showSideBar()
             }
         });
     }
@@ -57,36 +55,41 @@ class App extends Component {
         this.setState({
             sidebarStatus: !$params
         },()=>{
-            this.hideOverlay()
+            this.f_hideSideBar()
         });
     }
 
-    showOverlay(){
-        document.body.classList.remove('sidebar-mini')
-        setTimeout(
-            function(){ 
-                $('body .sidebar .sidebar-title span').show()
-                $('body .sidebar .sidebar-content ul li span').show()
-            },    
-            175
-        )
+    handleQuickToolsClick(){
+        this.setState({
+            quickToolsStatus: !this.state.quickToolsStatus
+        },()=>{
+            if(this.state.quickToolsStatus){
+                $('.quick-tools').fadeIn().promise().done( function(){
+                    $( ".quick-tools" ).addClass('open')
+                })
+            }
+            else{
+                $( ".quick-tools" ).removeClass('open').promise().done( function(){
+                    $( ".quick-tools" ).fadeOut()
+                })
+            }
+        });
     }
 
-    hideOverlay(){
-        $('body .sidebar .sidebar-title span').hide()
-        $('body .sidebar .sidebar-content ul li span').hide()
-        setTimeout(
-            function(){
-                document.body.classList.add('sidebar-mini') 
-            },
-            100
-        )
+    f_hideSideBar(){
+        $('.overlay').fadeOut().promise().done( function(){
+            $( "body" ).removeClass('expand')
+        })
     }
 
-        
+    f_showSideBar(){
+        $( "body" ).addClass('expand').promise().done( function(){
+            $('.overlay').fadeIn()
+        })
+    }
 
     render(){
-        const {sidebarStatus} = this.state
+        const {sidebarStatus, quickToolsStatus, activeRoute} = this.state
 
         return (
             <Router>
@@ -100,9 +103,62 @@ class App extends Component {
                     <Sidebar_Logo 
                         firstName={bundle.brand.firstName} 
                         lastName={bundle.brand.lastName} />
-                    <Sidebar_Content menu={bundle.sidebar} />
+                    <Sidebar_Content >
+                        {bundle.sidebar.map((data, key)=>{
+                            return <Sidebar_SingleMenu 
+                                key={key}
+                                i={key}
+                                active={activeRoute} 
+                                url={data.link} 
+                                icon={data.icons}
+                                onclick={ ()=>{ this.setState({ activeRoute: key }) }}
+                                
+                                >{data.label}</Sidebar_SingleMenu>
+                        })}
+                    </Sidebar_Content>
                 </Sidebar>
                 
+                {/* Quick Tools */}
+                <QuickTools>
+                    { bundle.quick_tools.request_time_off.map( (data, key) => {
+                        return(
+                            <Fragment key={key}>
+                                <QuickToolsCaption label={data.label} icon={data.icons}/>
+                                <QuickToolsBody>
+                                { data.items.map( (data, key)=>{
+                                    return(
+                                        <Media key={key}>
+                                            <MediaBody style={['align-self-end']}>
+                                                <h6 className="mb-0">{data.name}</h6>
+                                                <small>{data.start_date}</small> - <small>{data.end_date}</small>
+                                            </MediaBody>
+                                        </Media>
+                                    )
+                                }) }
+                                </QuickToolsBody>
+                            </Fragment>
+                        )
+                    }) }
+                    { bundle.quick_tools.companys_events.map( (data, key) => {
+                        return(
+                            <Fragment key={key}>
+                                <QuickToolsCaption label={data.label} icon={data.icons}/>
+                                <QuickToolsBody>
+                                { data.items.map( (data, key)=>{
+                                    return(
+                                        <Media key={key}>
+                                            <MediaBody style={['align-self-end']}>
+                                                <h6 className="mb-0">{data.name}</h6>
+                                                <small>{data.start_date}</small> - <small>{data.end_date}</small>
+                                            </MediaBody>
+                                        </Media>
+                                    )
+                                }) }
+                                </QuickToolsBody>
+                            </Fragment>
+                        )
+                    }) }
+                </QuickTools>
 
                 {/* Content */}
                 <div className="content">
@@ -113,13 +169,20 @@ class App extends Component {
                         <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}} />
 
                         <NavbarRight>
-                            <NavbarNotification/>
-                            <NavbarDropdown/>
+                            {bundle.navbar.map((data, key)=>{
+                                return(
+                                    <NavbarLink url={data.link} key={key} icon={data.icons}
+                                        click={key + 1 === 2 ? ()=>this.handleQuickToolsClick(!quickToolsStatus) : null}
+                                    />
+                                )
+                            })} 
                         </NavbarRight>
                     </Navbar>
 
                     <div className="inner-content">
+                        {/* Routing */}
                         <Routes/>
+
                     </div>
                 </div>
             </Router>

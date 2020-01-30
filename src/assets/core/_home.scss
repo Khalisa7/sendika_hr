@@ -1,70 +1,75 @@
-.home-dashboard{
-    border: 1px solid $primary-color;
-    min-height: 960px;
-    background: white;
-    box-shadow: 0px 5px 10px 0px #40bd8b7a;
-    border-radius: 5px;
-    padding: 0 30px;
-    .profile-silluet{
-        margin-bottom: 50px;
-        .initial-box{
-            height: 150px;
-            width: 150px;
-            background: $secondary-color;
-            margin-right: 30px;
-            h1{
-                text-align: center;
-                line-height: 150px;
-                color: white;
-            }
-        }
-        .media-body{
-            // padding-top: 50px;
-            align-self: flex-end;
-            h5, p{
-                margin:0;
-                .fa-envelope, .fa-phone{
-                    color: $primary-color;
-                    font-size: 16px;
-                }
-            }
+
+
+.home{
+    .department-card{
+        h5, p, small{
+            color: $grey-color;
         }
     }
-    .employee-profile{
-        margin-top: 50px;
-        .nav-pills{
-            border-bottom: 1px solid whitesmoke;
-            .nav-link{
-                border-radius: 0;
-                color: black;
-                padding: 15px 25px;
-                font-size: 14px;
-                font-weight: 500;
-                transform: .5s;
-                cursor: pointer;
-                &.active{
-                    background: none;
-                    color: $primary-color;
-                    border-bottom: px solid $primary-color;
-                    border-bottom: 3px solid $primary-color;
-                }
+    .feature-card{
+        padding: 0 25px;
+        .card{
+            border-radius: 10px;
+            .fa-fw{
+                color: $secondary-color;
+                font-size: 18px;
             }
-        }
-        .tab-content{
-            padding: 0 25px;
+            p{
+                font-size: 12px;
+            }
         }
     }
 }
-
-.home-cards{
-    h5{
-        margin-bottom: 0;
+@media screen and (min-device-width : $break-min-large) {
+    .home{
+        .feature-card{
+            .col-4{
+                padding: 5px;
+            }
+            .card{
+                .fa-fw{
+                    color: $secondary-color;
+                    font-size: 28px;
+                }
+            }
+        }
     }
-    .card{
-        background: $secondary-color;
-        border: 1px solid $secondary-color;
-        box-shadow: 0px 2px 3px 0px #8080807a;
-        color:white;
-    }
+}
+@media screen and (max-device-width : $break-min-large) {
 
+    .home{
+        padding-top: 40px;
+        .department-card{
+            .media{
+                display: block;
+                text-align: center;
+                .user-profile{
+                    margin: auto !important;
+                }
+            }
+            [class^=col-]{
+                text-align: center;
+            }
+        }
+        .feature-card{
+            .col-4{
+                padding: 5px;
+            }
+            .card{
+                min-height: 125px;
+                h6{
+                    font-size: 12px;
+                    font-weight: normal;
+                    margin-bottom: 0 !important;
+                }
+                .fa-fw{
+                    color: $secondary-color;
+                    font-size: 28px;
+                }
+                p{
+                    display: none;
+                }
+            }
+        }
+    }
 }
