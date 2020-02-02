@@ -19,7 +19,7 @@ import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 function Navbar(props){
     return(
         <Fragment>
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top head-navbar">
+            <nav className="navbar navbar-expand-lg fixed-top head-navbar">
                 <div className="container">
                     {props.children}
                 </div>

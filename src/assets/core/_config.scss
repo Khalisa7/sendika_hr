@@ -69,4 +69,8 @@ p, a{
     p, .btn, .dropdown-menu{
         font-size: 14px;
     }
+    .container, .row{
+        margin:0;
+        padding: 0;
+    }
 }

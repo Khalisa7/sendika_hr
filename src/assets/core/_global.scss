@@ -98,10 +98,10 @@ body.sidebar-mini{
             padding: 60px 0;
 
             .head-navbar{
-                background-color: white !important;
                 display: block;
                 z-index: 999;
                 box-shadow: 10px 10px 55px 0px #b3b3b329;
+                background-color: white;
                 .navbar-brand{
                     color: $secondary-color;
                 }
@@ -110,9 +110,10 @@ body.sidebar-mini{
                     font-size: inherit;
                 }
                 .navbar-nav{
+                    display: block;
                     .nav-item{
-                        padding-left: 10px;
-                        padding-right: 10px;
+                        float: left;
+                        padding-right: 0;
                     }
                 }
             }
@@ -165,6 +166,11 @@ body.sidebar-mini.expand{
         .content{
             margin: 0;
             width: auto;
+            .head-navbar{
+                .navbar-nav{
+                    display: block;
+                }
+            }
         }
     }
 }
@@ -174,8 +180,10 @@ body.sidebar-mini.expand{
 @media screen and (max-device-width : $break-min-large) {
     body.sidebar-mini{
         #main{
-            .content .head-navbar{
-                display: block;
+            
+            .head-navbar{
+                background-color: transparent !important;
+                box-shadow: none !important;
                 .navbar-nav{
                     display: block;
                     .nav-item{
@@ -183,8 +191,26 @@ body.sidebar-mini.expand{
                     }
                 }
             }
-            .content .inner-content{
-                padding: unset;
+            .content{
+                display: block;
+                background: #fdfdfd;
+                padding: 0;
+                .head-navbar{
+                    .navbar-brand{
+                        padding-left: 12px;
+                        color: white;
+                    }
+                    .nav-link{
+                        color: white;
+                        font-size: inherit;
+                    }
+                    .nav-link{
+                        padding: 10px 12px;
+                    }
+                }
+                .inner-content{
+                    padding: 0;
+                }
             }
         }
     }

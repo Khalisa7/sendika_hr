@@ -119,7 +119,7 @@ class App extends Component {
                 </Sidebar>
                 
                 {/* Quick Tools */}
-                <QuickTools>
+                <QuickTools close={() => this.handleQuickToolsClick()}>
                     { bundle.quick_tools.request_time_off.map( (data, key) => {
                         return(
                             <Fragment key={key}>

@@ -7,15 +7,14 @@
         }
     }
     .feature-card{
-        padding: 0 25px;
         .card{
-            border-radius: 10px;
+            
             .fa-fw{
                 color: $secondary-color;
                 font-size: 18px;
             }
             p{
-                font-size: 12px;
+                font-size: 14px;
             }
         }
     }
@@ -23,10 +22,12 @@
 @media screen and (min-device-width : $break-min-large) {
     .home{
         .feature-card{
-            .col-4{
+            padding: 0 25px;
+            .col-3{
                 padding: 5px;
             }
             .card{
+                padding: 15px;
                 .fa-fw{
                     color: $secondary-color;
                     font-size: 28px;
@@ -38,33 +39,71 @@
 @media screen and (max-device-width : $break-min-large) {
 
     .home{
-        padding-top: 40px;
         .department-card{
+            margin-bottom: 30px !important;
+            padding: 0;
             .media{
                 display: block;
                 text-align: center;
+                background: $secondary-color;
+                padding: 60px 15px 30px 15px;
+                margin-bottom: 30px;
+                h5, p, small{
+                    color: white;
+                    margin-bottom: 0;
+                }
                 .user-profile{
                     margin: auto !important;
                 }
             }
             [class^=col-]{
                 text-align: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                &:nth-of-type(1), &:nth-of-type(2){
+                    &::after{
+                        content: ' ';
+                        background: rgba(0, 0, 0, 0.21);
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 1px;
+                    }
+                }
             }
         }
         .feature-card{
-            .col-4{
+            .col-3{
+                margin-bottom: 15px;
                 padding: 5px;
             }
             .card{
-                min-height: 125px;
+                border-radius: 10px;
+                border:none;
+                background: none;
+                .card-body{
+                    background: white;
+                    border: 1px solid rgba(0, 0, 0, 0.22);
+                    border-radius: 10px;
+                    // box-shadow: 0px 0px 10px 0px #b3b3b352;
+                    position: relative;
+                    height: 80px;
+                }
                 h6{
                     font-size: 12px;
                     font-weight: normal;
                     margin-bottom: 0 !important;
+                    margin-top: 5px;
                 }
                 .fa-fw{
                     color: $secondary-color;
-                    font-size: 28px;
+                    left: 50%;
+                    font-size: 24px;
+                    margin: auto;
+                    transform: translate(-50%, -50%);
+                    position: absolute;
+                    top: 50%;
                 }
                 p{
                     display: none;
