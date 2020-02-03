@@ -36,10 +36,17 @@
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 10px;
+            .fa-fw{
+                font-size: 14px;
+            }
+            .btn{
+                align-self: center;
+                padding: 5px;
+            }
         }
     }
 }
-@media screen and (max-device-width : $break-min-large) {
+@media screen and (min-device-width : $break-min-large) {
     .quick-tools{
         width: 300px;
         right: -300px;

@@ -56,6 +56,9 @@ p, a{
 .btn.bg-secondary:hover{
     background: $third-color !important;
 }
+.btn:focus{
+    box-shadow: none;
+}
 .container{
     max-width: 1000px;
 }

@@ -17,7 +17,7 @@ import { bundle } from '@src/interfaces'
 import { Routes } from '@src/routes'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTools, faUser, faNewspaper, faWrench } from '@fortawesome/free-solid-svg-icons'
+import { faTools, faUser, faNewspaper, faWrench, faEllipsisV, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Sidebar, Sidebar_Logo, Sidebar_Content, Sidebar_SingleMenu } from '@src/component/sidebar'
 import { QuickTools, QuickToolsBody, QuickToolsCaption } from '@src/component/quicktools'
 import { Navbar, NavbarBrand, NavbarRight, NavbarLink} from '@src/component/navbar'

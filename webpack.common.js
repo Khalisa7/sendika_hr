@@ -34,6 +34,15 @@ module.exports = {
                 parallel: true,
             }),
         ],
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "vendor",
+                    chunks: "initial",
+                }
+            }
+        }
     },
 
     // Module Point
