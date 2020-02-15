@@ -1,8 +1,8 @@
 
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
-import {  faHome, faCloudMoon } from '@fortawesome/free-solid-svg-icons'
-import {  faUser, faCalendarAlt, faBell, faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import {  faHome, faCloudMoon, faBell, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import {  faUser, faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 
 const bundle = {
     

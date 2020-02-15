@@ -1,10 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&display=swap|Open+Sans:300,400,500,700,800');
 
-$break-min-large: 768px;
-$primary-color: white;
-$secondary-color: #06bb69;
-$third-color: #e9fff5;
-$grey-color: #535353;
+// =======================================
+//                Resolution
+// =======================================
+
+// Mobile
+$mobile-s: 320px; 
+$mobile-sm: 375px;
+$mobile-l: 425px;
+
+// Tablet
+$tablet: 767px;
+
+// Desktop
+$desktop-s: 1023px;
+$desktop-m: 1440px;
+
+
+// =======================================
+//                  Color
+// =======================================
+$color-primary: white;
+$color-secondary: #06bb69;
+$color-thirnary: #ebfff2;
+$color-text: #535353;
+
+
 
 *, ::after, ::before{
     box-sizing: border-box;
@@ -13,6 +34,7 @@ $grey-color: #535353;
 html, body {
     min-height: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 a{
     color: #303F9F;
@@ -28,6 +50,10 @@ h1,h2,h3,h4,h5,h6 {
 p, a{
     word-wrap:break-word;
     font-family: 'Open Sans', sans-serif;
+    font-size: 12px; 
+}
+p, .btn, .dropdown-menu{
+    font-size: 12px; 
 }
 .breadcrumb{
     color: black;
@@ -47,31 +73,20 @@ p, a{
 }
 
 .bg-primary{
-    background: $primary-color !important;
+    background: $color-primary !important;
 }
 
 .bg-secondary{
-    background: $secondary-color !important;
+    background: $color-secondary !important;
 }
 .btn.bg-secondary:hover{
-    background: $third-color !important;
+    background: $color-thirnary !important;
 }
 .btn:focus{
     box-shadow: none;
 }
-.container{
-    max-width: 1000px;
-}
 
-@media screen and (min-device-width : $break-min-large) {
-    p, .btn, .dropdown-menu{
-        font-size: 14px;
-    }
-}
-@media screen and (max-device-width : $break-min-large) {
-    p, .btn, .dropdown-menu{
-        font-size: 14px;
-    }
+@media screen and (max-device-width : $tablet) {
     .container, .row{
         margin:0;
         padding: 0;

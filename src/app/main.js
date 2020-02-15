@@ -16,8 +16,8 @@ import { BrowserRouter as Router} from "react-router-dom";
 import { bundle } from '@src/interfaces'
 import { Routes } from '@src/routes'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTools, faUser, faNewspaper, faWrench, faEllipsisV, faCheck } from '@fortawesome/free-solid-svg-icons'
+import logo from '@src/assets/img/logo_fixed.png'
+import logo_white from '@src/assets/img/logo_fixed_white.png'
 import { Sidebar, Sidebar_Logo, Sidebar_Content, Sidebar_SingleMenu } from '@src/component/sidebar'
 import { QuickTools, QuickToolsBody, QuickToolsCaption } from '@src/component/quicktools'
 import { Navbar, NavbarBrand, NavbarRight, NavbarLink} from '@src/component/navbar'
@@ -100,9 +100,6 @@ class App extends Component {
 
                 {/* Sidebar */}
                 <Sidebar active={sidebarStatus}>
-                    <Sidebar_Logo 
-                        firstName={bundle.brand.firstName} 
-                        lastName={bundle.brand.lastName} />
                     <Sidebar_Content >
                         {bundle.sidebar.map((data, key)=>{
                             return <Sidebar_SingleMenu 
@@ -166,7 +163,13 @@ class App extends Component {
 
                     {/* Navbar */}
                     <Navbar>
-                        <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}} />
+                        <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}}>
+                            <picture>
+                                <source srcSet={logo_white} media="(max-width: 640px)" />
+                                <source srcSet={logo} media="(min-width: 640px)" />
+                                <img srcSet={logo} className="logo"/>
+                            </picture>
+                        </NavbarBrand>
 
                         <NavbarRight>
                             {bundle.navbar.map((data, key)=>{

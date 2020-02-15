@@ -69,7 +69,6 @@ module.exports = {
                 {
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'images',
                         name: '[hash].[ext]',
                     }
                 }
@@ -80,7 +79,6 @@ module.exports = {
                 MiniCssExtractPlugin.loader,
                 { loader: "css-loader", options: { sourceMap: true, importLoaders: 1 } },
                 { loader: "sass-loader", options: { sourceMap: true } },
-
             ],
         },{
             test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

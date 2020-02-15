@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 
-function Accordion(props){
+const Accordion = (props) =>{
     return(
         <Fragment>
             {props.children}
@@ -8,7 +8,7 @@ function Accordion(props){
     )
 }
 
-function AccordionHeader(props){
+const AccordionHeader = (props) =>{
     return(
         <Fragment>
             <h5>{props.label}</h5>

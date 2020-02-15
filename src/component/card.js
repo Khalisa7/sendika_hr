@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 // Card Component
-function Card(props){
+const Card = (props) =>{
     let styles = ['card', ...props.style]
 
     return(
@@ -14,7 +14,7 @@ function Card(props){
     )
 }
 
-function CardHeader(props){
+const CardHeader = (props) =>{
     let styles = ['card-header', ...props.style] 
 
     return(
@@ -26,7 +26,7 @@ function CardHeader(props){
     )
 }
 
-function CardBody(props){
+const CardBody = (props) =>{
     let styles = ['card-body', ...props.style] 
 
     return(
@@ -38,7 +38,7 @@ function CardBody(props){
     )
 }
 
-function CardFooter(props){
+const CardFooter = (props) =>{
     let styles = ['card-footer', ...props.style]
 
     return(

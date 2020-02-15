@@ -1,8 +1,7 @@
 import React,{Fragment} from 'react'
 import PropTypes from 'prop-types'
 
-function Row(props){
-
+const Row = (props) => {
     let styles = ['row', ...props.style]
 
     return(

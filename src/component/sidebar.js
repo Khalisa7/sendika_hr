@@ -17,10 +17,12 @@ import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 
 
 // Main Container Sidebar
-function Sidebar(props){
+const Sidebar = (props) => {
+    const { children } = props
+
     return(
         <div className="sidebar">
-            {props.children}
+            {children}
         </div>
     )
     
@@ -30,12 +32,14 @@ function Sidebar(props){
 
 
 // Logo On Sidebar
-function Sidebar_Logo(props){
+const Sidebar_Logo = (props) => {
+    const { firstName } = props
+
     return(
         <Fragment>
             <div className="sidebar-title">
                 <h4>
-                    <span>{props.firstName}</span>
+                    <span>{firstName}</span>
                 </h4>
             </div>
         </Fragment>
@@ -46,12 +50,14 @@ function Sidebar_Logo(props){
 
 
 // Profile Picture On Sidebar If Exists
-function Sidebar_ProfilePicture(props){
+const Sidebar_ProfilePicture = (props) => {
+    const { picture } = props
+
     return(
         <Fragment>
             <div className="sidebar-profile">
                 <div className="sidebar-picture">
-                    <img src={props.picture}  />
+                    <img src={picture}  />
                 </div>
                 
                 
@@ -64,13 +70,14 @@ function Sidebar_ProfilePicture(props){
 
 
 // Sidebar Content Wrapper
-function Sidebar_Content(props){
+const Sidebar_Content = (props) => {
+    const {children} = props
 
     return(
         <Fragment>
             <div className="sidebar-content">
                 <ul className="menu">
-                    {props.children}
+                    {children}
                 </ul>
             </div>
         </Fragment>
@@ -79,13 +86,13 @@ function Sidebar_Content(props){
 
 
 // Sidebar Single Menu
-function Sidebar_SingleMenu(props){
+const Sidebar_SingleMenu = (props) => {    
     let classNames = ''
 
     if(props.active === props.i){
         classNames = 'active'
     }else{
-        classNames = ''
+        classNames = undefined
     }
 
     

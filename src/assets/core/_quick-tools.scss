@@ -7,7 +7,7 @@
     z-index: 1000;
     padding: 20px;
     box-shadow: 10px 10px 55px 0px #b3b3b329;
-    color: $grey-color;
+    color: $color-text;
     overflow-y: scroll;
     scrollbar-width: none; /* Firefox 64 */
     -ms-overflow-style: none; /* Internet Explorer 11 */
@@ -19,12 +19,12 @@
     }
     .fa-fw{
         font-size: 20px;
-        color: $secondary-color;
+        color: $color-secondary;
     }
     .quick-tools-header{
         text-align: left;
         padding-bottom: 25px;
-        color: $grey-color;
+        color: $color-text;
     }
     .quick-tools-body{
         overflow: hidden;
@@ -46,13 +46,13 @@
         }
     }
 }
-@media screen and (min-device-width : $break-min-large) {
+@media screen and (min-device-width : $tablet) {
     .quick-tools{
         width: 300px;
         right: -300px;
     }
 }
-@media screen and (max-device-width : $break-min-large) {
+@media screen and (max-device-width : $tablet) {
     .quick-tools{
         width: 100%;
         right: -100%;

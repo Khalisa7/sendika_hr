@@ -16,7 +16,7 @@ import {  faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
 // Main Container Sidebar
-function Overlay(props){
+const Overlay = (props) => {
     const active = props.active
     let classNames = '';
 

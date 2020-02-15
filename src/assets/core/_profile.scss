@@ -1,5 +1,5 @@
 .home-dashboard{
-    border: 1px solid $primary-color;
+    border: 1px solid $color-primary;
     min-height: 960px;
     background: white;
     box-shadow: 0px 5px 10px 0px #40bd8b7a;
@@ -10,7 +10,7 @@
         .initial-box{
             height: 150px;
             width: 150px;
-            background: $secondary-color;
+            background: $color-secondary;
             margin-right: 30px;
             h1{
                 text-align: center;
@@ -24,7 +24,7 @@
             h5, p{
                 margin:0;
                 .fa-envelope, .fa-phone{
-                    color: $primary-color;
+                    color: $color-primary;
                     font-size: 16px;
                 }
             }
@@ -44,9 +44,9 @@
                 cursor: pointer;
                 &.active{
                     background: none;
-                    color: $primary-color;
-                    border-bottom: px solid $primary-color;
-                    border-bottom: 3px solid $primary-color;
+                    color: $color-primary;
+                    border-bottom: px solid $color-primary;
+                    border-bottom: 3px solid $color-primary;
                 }
             }
         }

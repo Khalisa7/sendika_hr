@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react'
 import PropTypes from 'prop-types'
 
-function Container(props){
+const Container = (props) => {
 
     let styles = []
 

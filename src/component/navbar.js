@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 
-function Navbar(props){
+const Navbar = (props) =>{
     return(
         <Fragment>
             <nav className="navbar navbar-expand-lg fixed-top head-navbar">
@@ -28,7 +28,7 @@ function Navbar(props){
     )
 }
 
-function NavbarBrand(props){
+const NavbarBrand = (props) =>{
     return(
         <Fragment>
             <a className="navbar-brand" href="#" onClick={props.click} >
@@ -39,7 +39,7 @@ function NavbarBrand(props){
     )
 }
 
-function NavbarRight(props){
+const NavbarRight = (props) =>{
     return(
         <Fragment>
             <ul className="navbar-nav nav ml-auto">
@@ -49,7 +49,7 @@ function NavbarRight(props){
     )
 }
 
-function NavbarLink(props){
+const NavbarLink = (props) =>{
     let styles = ["nav-item", ...props.style]
 
     if(props.url !== null){

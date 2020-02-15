@@ -2,17 +2,22 @@
 
 import React, { Fragment } from 'react'
 import Loadable from 'react-loadable'
-import { Switch, Route } from "react-router-dom";
-import {BeatLoader} from 'react-spinners/BarLoader'
+import { Switch, Route } from "react-router-dom"
 
 
+
+const Loader = () => {
+    return(
+        <div className="loader">Loading...</div>
+    )
+}
 
 const Home = Loadable({
     loader: () =>
         new Promise((resolve, reject) => {
             setTimeout(() => resolve( import('@src/pages/home') ), 2000);
         }),
-    loading: ({ pastDelay }) => (pastDelay ? <div>Loading...</div> : null),
+    loading: ({ pastDelay }) => (pastDelay ? <Loader/> : null),
     delay: 1000
 });
 

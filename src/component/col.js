@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react'
 import PropTypes from 'prop-types'
 
-function Col(props){
+const Col = (props) => {
     let styles = [...props.style]
 
     return(

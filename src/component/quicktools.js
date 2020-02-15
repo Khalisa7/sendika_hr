@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Media, MediaBody } from '@src/component/media'
 import { faTools, faTimes, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-function QuickTools (props){
+const QuickTools = (props) => {
     let styles = ['quick-tools', ...props.style]
     return(
         <Fragment>
@@ -27,7 +27,7 @@ function QuickTools (props){
     )
 }
 
-function QuickToolsBody(props){
+const QuickToolsBody = (props) => {
     return(
         <Fragment>
             <div className="quick-tools-content">
@@ -37,7 +37,7 @@ function QuickToolsBody(props){
     )
 }
 
-function QuickToolsCaption(props){
+const QuickToolsCaption = (props) => {
     return(
         <Fragment>
             <div className="quick-tools-caption">

@@ -18,7 +18,7 @@ import { Card, CardHeader, CardBody } from '@src/component/card'
 import { Media, MediaBody } from '@src/component/media'
 import img from '@src/assets/img/profile.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLuggageCart, faIdCard, faHandHoldingHeart, faFileCode, faGem, faMobile } from '@fortawesome/free-solid-svg-icons'
+import { faLuggageCart, faIdCard, faHandHoldingHeart, faFileCode, faGem, faMobile, faTable, faCreditCard, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 
 
 class Home extends Component{
@@ -36,10 +36,10 @@ class Home extends Component{
             <Fragment>
                 <Container style={['home']}>
                     <Row style={['justify-content-center']}>
-                        <Col style={['col-12', 'col-md-4', 'mb-4', 'department-card']}>
+                        <Col style={['col-12', 'col-md-4', 'department-card']}>
                             <Media>
-                                <ProfilePic imgSrc={img} imgAlt={'Herlina Sunaryanto'} style={['mr-3']} />
-                                <MediaBody style={['align-self-end']}>
+                                <ProfilePic imgSrc={img} imgAlt={'Herlina Sunaryanto'} />
+                                <MediaBody>
                                     <h5 className="mb-1">Herlina Sunaryanto</h5>
                                     <p>Human Resource Administrator</p>
                                 </MediaBody>
@@ -62,58 +62,92 @@ class Home extends Component{
                         <Col style={['col-12', 'col-md-8', 'feature-card', 'text-center']}>
                             <Row>
                                 <Col style={['col-md-4' , 'col-3']}>
-                                    <Card>
-                                        <CardBody>
-                                            <FontAwesomeIcon icon={faLuggageCart} className="fa-fw d-block m-auto"/>
-                                        </CardBody>
-                                        <h6 className="mb-2">Request Time Off</h6>
-                                        <p className="mb-0">Request time off and check your balance</p>
-                                    </Card>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faLuggageCart} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">Request Time Off</h6>
+                                            <p className="mb-0">Request time off and check your balance</p>
+                                        </MediaBody>
+                                    </Media>
                                 </Col>
                                 <Col style={['col-md-4' , 'col-3']}>
-                                    <Card>
-                                        <CardBody>
-                                            <FontAwesomeIcon icon={faIdCard} className="fa-fw d-block m-auto"/>
-                                        </CardBody>
-                                        <h6 className="mb-2">Company's Directory</h6>
-                                        <p className="mb-0">Search for coworkers and their contact info</p>
-                                    </Card>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faIdCard} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">Company's Directory</h6>
+                                            <p className="mb-0">Search for coworkers and their contact info</p>
+                                        </MediaBody>
+                                    </Media>
                                 </Col>
                                 <Col style={['col-md-4' , 'col-3']}>
-                                    <Card>
-                                        <CardBody>
-                                            <FontAwesomeIcon icon={faHandHoldingHeart} className="fa-fw d-block m-auto"/>
-                                        </CardBody>
-                                        <h6 className="mb-2">Benefits</h6>
-                                        <p className="mb-0">See which company benefits you are enrolled in</p>
-                                    </Card>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faHandHoldingHeart} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">Benefits</h6>
+                                            <p className="mb-0">Which benefits you are enrolled in</p>
+                                        </MediaBody>
+                                    </Media>
                                 </Col>
                                 <Col style={['col-md-4' , 'col-3']}>
-                                    <Card>
-                                        <CardBody>
-                                            <FontAwesomeIcon icon={faFileCode} className="fa-fw d-block m-auto"/>
-                                        </CardBody>
-                                        <h6 className="mb-2">Training</h6>
-                                        <p className="mb-0">Request time off and check your balance</p>
-                                    </Card>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faFileCode} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">Training</h6>
+                                            <p className="mb-0">Request time off and check your balance</p>
+                                        </MediaBody>
+                                    </Media>
                                 </Col>
                                 <Col style={['col-md-4', 'col-3']}>
-                                    <Card>
-                                        <CardBody>
-                                            <FontAwesomeIcon icon={faGem} className="fa-fw d-block m-auto"/>
-                                        </CardBody>
-                                        <h6 className="mb-2">Goals</h6>
-                                        <p className="mb-0">Search for coworkers and their contact info</p>
-                                    </Card>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faGem} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">Goals</h6>
+                                            <p className="mb-0">Search for coworkers and their contact info</p>
+                                        </MediaBody>
+                                    </Media>
                                 </Col>
                                 <Col style={['col-md-4', 'col-3']}>
-                                    <Card>
-                                        <CardBody>
-                                            <FontAwesomeIcon icon={faMobile} className="fa-fw d-block m-auto"/>
-                                        </CardBody>
-                                        <h6 className="mb-2">Mobile Apps</h6>
-                                        <p className="mb-0">See which company benefits you are enrolled in</p>
-                                    </Card>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faMobile} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">Mobile Apps</h6>
+                                            <p className="mb-0">Which benefits you are enrolled in</p>
+                                        </MediaBody>
+                                    </Media>
+                                </Col>
+                                <Col style={['col-md-4', 'col-3']}>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faTable} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">QPI</h6>
+                                            <p className="mb-0">Check Your Quality Performance Index</p>
+                                        </MediaBody>
+                                    </Media>
+                                </Col>
+                                <Col style={['col-md-4', 'col-3']}>
+                                    <Media>
+                                        <div className="icon-box">
+                                            <FontAwesomeIcon icon={faCreditCard} className="fa-fw d-block"/>
+                                        </div>
+                                        <MediaBody style={['align-self-end']}>
+                                            <h6 className="mb-2">Payroll</h6>
+                                            <p className="mb-0">Which benefits you are enrolled in</p>
+                                        </MediaBody>
+                                    </Media>
                                 </Col>
                                 
                             </Row>

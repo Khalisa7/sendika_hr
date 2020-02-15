@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 
-function ProfilePic(props){
+const ProfilePic = (props) => {
     let styles = ['user-profile mr-3', ...props.style]
     return(
         <Fragment>

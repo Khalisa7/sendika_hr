@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react'
 import PropTypes from 'prop-types'
 
-function Media(props){
+const Media = (props) =>{
     let styles = ['media', ...props.style]
     return(
         <Fragment>
@@ -12,7 +12,7 @@ function Media(props){
     )
 }
 
-function MediaBody(props){
+const MediaBody = (props) =>{
     let styles = ['media-body', ...props.style]
     return(
         <Fragment>
