@@ -1,6 +1,6 @@
 .user-profile{
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
     overflow: hidden;
     &.small{
@@ -12,7 +12,7 @@
         }
     }
     img{
-        width: 100px;
+        width: 120px;
         height: auto;
         position: relative;
         top:50%;

@@ -46,14 +46,15 @@ h1,h2,h3,h4,h5,h6 {
     text-transform: capitalize;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+    color: $color-text;
 }
-p, a{
+p, a, small{
     word-wrap:break-word;
     font-family: 'Open Sans', sans-serif;
-    font-size: 12px; 
+    color: $color-text;
 }
 p, .btn, .dropdown-menu{
-    font-size: 12px; 
+    font-size: 14px; 
 }
 .breadcrumb{
     color: black;
@@ -86,9 +87,8 @@ p, .btn, .dropdown-menu{
     box-shadow: none;
 }
 
-@media screen and (max-device-width : $tablet) {
-    .container, .row{
-        margin:0;
-        padding: 0;
+.media{
+    .dropdown-toggle::before{
+        display: none;
     }
 }

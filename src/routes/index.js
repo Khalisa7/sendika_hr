@@ -15,7 +15,7 @@ const Loader = () => {
 const Home = Loadable({
     loader: () =>
         new Promise((resolve, reject) => {
-            setTimeout(() => resolve( import('@src/pages/home') ), 2000);
+            setTimeout(() => resolve( import('@src/pages/home') ), 2000)
         }),
     loading: ({ pastDelay }) => (pastDelay ? <Loader/> : null),
     delay: 1000
@@ -24,7 +24,7 @@ const Home = Loadable({
 const Profile = Loadable({
     loader: () =>
         new Promise((resolve, reject) => {
-            setTimeout(() => resolve( import('@src/pages/profile') ), 2000);
+            setTimeout(() => resolve( import('@src/pages/profile') ), 2000)
         }),
     loading: ({ pastDelay }) => (pastDelay ? <div>Loading...</div> : null),
     delay: 1000

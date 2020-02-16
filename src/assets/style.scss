@@ -3,4 +3,8 @@
 @import "core/quick-tools";
 @import "core/profile";
 @import "core/profilepic";
-@import "core/home";
+
+// Styling
+@import "pages/home/home_desktop";
+@import "pages/home/home_tablet";
+@import "pages/home/home_mobile";

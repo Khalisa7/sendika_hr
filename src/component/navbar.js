@@ -31,8 +31,8 @@ const Navbar = (props) =>{
 const NavbarBrand = (props) =>{
     return(
         <Fragment>
-            <a className="navbar-brand" href="#" onClick={props.click} >
-                <FontAwesomeIcon icon={props.active?faBars:faArrowLeft}/>
+            <a className="navbar-brand" href="#">
+                <FontAwesomeIcon icon={props.active?faBars:faArrowLeft}  onClick={props.click}/>
                 {props.children}
             </a>
         </Fragment>
