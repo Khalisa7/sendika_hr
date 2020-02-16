@@ -13,12 +13,12 @@
 import React,{Component, Fragment} from 'react'
 import { BrowserRouter as Router} from "react-router-dom";
 
-import { bundle } from '@src/interfaces'
+import { bundle, data } from '@src/interfaces'
 import { Routes } from '@src/routes'
 
 import logo from '@src/assets/img/logo_fixed.png'
 import logo_white from '@src/assets/img/logo_fixed_white.png'
-import { Sidebar, Sidebar_Logo, Sidebar_Content, Sidebar_SingleMenu } from '@src/component/sidebar'
+import { Sidebar, Sidebar_Content, Sidebar_SingleMenu } from '@src/component/sidebar'
 import { QuickTools, QuickToolsBody, QuickToolsCaption } from '@src/component/quicktools'
 import { Navbar, NavbarBrand, NavbarRight, NavbarLink} from '@src/component/navbar'
 import { Media, MediaBody } from '@src/component/media'
@@ -90,105 +90,109 @@ class App extends Component {
 
     render(){
         const {sidebarStatus, quickToolsStatus, activeRoute} = this.state
+        const requestTimeOff = data.quick_tools.request_time_off;
+        const companysEvents = data.quick_tools.companys_events;
 
         return (
-            <Router>
+            <Fragment>
+                <Router>
                 
-                {/* Overlay */}
-                <Overlay click={ ()=> {this.handleOverlayClick()} }/>
+                    {/* Overlay */}
+                    <Overlay click={ ()=> {this.handleOverlayClick()} }/>
 
 
-                {/* Sidebar */}
-                <Sidebar active={sidebarStatus}>
-                    <Sidebar_Content >
-                        {bundle.sidebar.map((data, key)=>{
-                            return <Sidebar_SingleMenu 
-                                key={key}
-                                i={key}
-                                active={activeRoute} 
-                                url={data.link} 
-                                icon={data.icons}
-                                onclick={ ()=>{ this.setState({ activeRoute: key }) }}
-                                
-                                >{data.label}</Sidebar_SingleMenu>
-                        })}
-                    </Sidebar_Content>
-                </Sidebar>
-                
-                {/* Quick Tools */}
-                <QuickTools close={() => this.handleQuickToolsClick()}>
-                    { bundle.quick_tools.request_time_off.map( (data, key) => {
-                        return(
-                            <Fragment key={key}>
-                                <QuickToolsCaption label={data.label} icon={data.icons}/>
-                                <QuickToolsBody>
-                                { data.items.map( (data, key)=>{
-                                    return(
-                                        <Media key={key}>
-                                            <MediaBody style={['align-self-end']}>
-                                                <h6 className="mb-0">{data.name}</h6>
-                                                <small>{data.start_date}</small> - <small>{data.end_date}</small>
-                                            </MediaBody>
-                                        </Media>
-                                    )
-                                }) }
-                                </QuickToolsBody>
-                            </Fragment>
-                        )
-                    }) }
-                    { bundle.quick_tools.companys_events.map( (data, key) => {
-                        return(
-                            <Fragment key={key}>
-                                <QuickToolsCaption label={data.label} icon={data.icons}/>
-                                <QuickToolsBody>
-                                { data.items.map( (data, key)=>{
-                                    return(
-                                        <Media key={key}>
-                                            <MediaBody style={['align-self-end']}>
-                                                <h6 className="mb-0">{data.name}</h6>
-                                                <small>{data.start_date}</small> - <small>{data.end_date}</small>
-                                            </MediaBody>
-                                        </Media>
-                                    )
-                                }) }
-                                </QuickToolsBody>
-                            </Fragment>
-                        )
-                    }) }
-                </QuickTools>
-
-                {/* Content */}
-                <div className="content">
+                    {/* Sidebar */}
+                    <Sidebar active={sidebarStatus}>
+                        <Sidebar_Content >
+                            {bundle.sidebar.map((data, key)=>{
+                                return <Sidebar_SingleMenu 
+                                    key={key}
+                                    i={key}
+                                    active={activeRoute} 
+                                    url={data.link} 
+                                    icon={data.icons}
+                                    onclick={ ()=>{ this.setState({ activeRoute: key }) }}
+                                    
+                                    >{data.label}</Sidebar_SingleMenu>
+                            })}
+                        </Sidebar_Content>
+                    </Sidebar>
                     
+                    {/* Quick Tools */}
+                    <QuickTools close={() => this.handleQuickToolsClick()}>
+                        { requestTimeOff.map( (data, key) => {
+                            return(
+                                <Fragment key={key}>
+                                    <QuickToolsCaption label={data.label} icon={data.icons}/>
+                                    <QuickToolsBody>
+                                    { data.items.map( (data, key)=>{
+                                        return(
+                                            <Media key={key}>
+                                                <MediaBody style={['align-self-end']}>
+                                                    <h6 className="mb-0">{data.name}</h6>
+                                                    <small>{data.start_date}</small> - <small>{data.end_date}</small>
+                                                </MediaBody>
+                                            </Media>
+                                        )
+                                    }) }
+                                    </QuickToolsBody>
+                                </Fragment>
+                            )
+                        }) }
+                        { companysEvents.map( (data, key) => {
+                            return(
+                                <Fragment key={key}>
+                                    <QuickToolsCaption label={data.label} icon={data.icons}/>
+                                    <QuickToolsBody>
+                                    { data.items.map( (data, key)=>{
+                                        return(
+                                            <Media key={key}>
+                                                <MediaBody style={['align-self-end']}>
+                                                    <h6 className="mb-0">{data.name}</h6>
+                                                    <small>{data.start_date}</small> - <small>{data.end_date}</small>
+                                                </MediaBody>
+                                            </Media>
+                                        )
+                                    }) }
+                                    </QuickToolsBody>
+                                </Fragment>
+                            )
+                        }) }
+                    </QuickTools>
 
-                    {/* Navbar */}
-                    <Navbar>
-                        <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}}>
-                            <picture>
-                                <source srcSet={logo_white} media="(max-width: 640px)" />
-                                <source srcSet={logo} media="(min-width: 640px)" />
-                                <img srcSet={logo} className="logo"/>
-                            </picture>
-                        </NavbarBrand>
+                    {/* Content */}
+                    <div className="content">
+                        
 
-                        <NavbarRight>
-                            {bundle.navbar.map((data, key)=>{
-                                return(
-                                    <NavbarLink url={data.link} key={key} icon={data.icons}
-                                        click={key + 1 === 2 ? ()=>this.handleQuickToolsClick(!quickToolsStatus) : null}
-                                    />
-                                )
-                            })} 
-                        </NavbarRight>
-                    </Navbar>
+                        {/* Navbar */}
+                        <Navbar>
+                            <NavbarBrand active={sidebarStatus} click={()=>{this.handleSidebarClick(sidebarStatus)}}>
+                                <picture>
+                                    <source srcSet={logo_white} media="(max-width: 640px)" />
+                                    <source srcSet={logo} media="(min-width: 640px)" />
+                                    <img srcSet={logo} className="logo"/>
+                                </picture>
+                            </NavbarBrand>
 
-                    <div className="inner-content">
-                        {/* Routing */}
-                        <Routes/>
+                            <NavbarRight>
+                                {bundle.navbar.map((data, key)=>{
+                                    return(
+                                        <NavbarLink url={data.link} key={key} icon={data.icons}
+                                            click={key + 1 === 2 ? ()=>this.handleQuickToolsClick(!quickToolsStatus) : null}
+                                        />
+                                    )
+                                })} 
+                            </NavbarRight>
+                        </Navbar>
 
+                        <div className="inner-content">
+                            {/* Routing */}
+                            <Routes/>
+
+                        </div>
                     </div>
-                </div>
-            </Router>
+                </Router>
+            </Fragment>
         );
     }
 }
