@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&display=swap|Open+Sans:300,400,500,700,800');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,600|Roboto:300,400,700,900|Open+Sans:300,400,500,700,800&display=swap');
 
 // =======================================
 //                Resolution
@@ -23,7 +23,9 @@ $desktop-m: 1440px;
 $color-primary: white;
 $color-secondary: #06bb69;
 $color-thirnary: #ebfff2;
-$color-text: #535353;
+$color-text: #5a5a5a;
+$color-title: #3d3d3d;
+$color-text2 : #037e7e;
 
 
 
@@ -44,14 +46,19 @@ a{
 }
 h1,h2,h3,h4,h5,h6 {
     text-transform: capitalize;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    color: $color-text;
+    font-family: 'Raleway', sans-serif;
+    // font-family: 'Roboto', sans-serif;
+    // font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: $color-title;
 }
 p, a, small{
+    // font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     word-wrap:break-word;
-    font-family: 'Open Sans', sans-serif;
     color: $color-text;
+    font-size: 12px;
 }
 p, .btn, .dropdown-menu{
     font-size: 14px; 

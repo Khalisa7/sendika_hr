@@ -35,6 +35,18 @@ class Home extends Component{
         return(
             <Fragment>
                 <Container style={['home']}>
+                    {/* <Row>
+                        <Col style={['col-12', 'my-5']}>
+                            <h1>Dashboard</h1>
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li className="breadcrumb-item"><a href="#">Library</a></li>
+                                    <li className="breadcrumb-item active" aria-current="page">Data</li>
+                                </ol>
+                            </nav>
+                        </Col>
+                    </Row> */}
                     <Row style={['justify-content-center']}>
                         <Col style={['col-12', 'col-lg-4', 'department-card']}>
                             <Row style={['employee-login']}>
@@ -51,15 +63,15 @@ class Home extends Component{
                             <Row style={['employee-holiday','text-center']}>
                                 <Col style={['col-4']}>
                                     <small>Sisa cuti</small>
-                                    <h6 className="mb-0">14 Hari</h6>
+                                    <h5 className="mb-0">14 Hari</h5>
                                 </Col>
                                 <Col style={['col-4']}>
                                     <small>Terpakai</small>
-                                    <h6 className="mb-0">3 Hari</h6>
+                                    <h5 className="mb-0">3 Hari</h5>
                                 </Col>
                                 <Col style={['col-4']}>
                                     <small>Sakit</small>
-                                    <h6 className="mb-0">2 Hari</h6>
+                                    <h5 className="mb-0">2 Hari</h5>
                                 </Col>
                             </Row>
                             <Row style={['employee-off']}>
@@ -92,9 +104,19 @@ class Home extends Component{
                                 </Col>
                             </Row>
                         </Col>
-                        <Col style={['col-12', 'col-lg-8', 'feature-card', 'text-center']}>
+                        <Col style={['col-12', 'col-lg-8', 'feature-card']}>
                             <Row>
-                                <Col style={['col-md-4' , 'col-3']}>
+                                <Col style={['col-12']}>
+                                    <p className="d-inline-block mb-0 py-2">
+                                        <span className="mr-3"><FontAwesomeIcon icon={faPlaneDeparture} className="fa-fw"/></span>
+                                        Quick Menu</p>
+                                    <a href="#" className="float-right py-2">
+                                        <FontAwesomeIcon icon={faChevronRight} className="fa-fw"/>
+                                    </a>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faLuggageCart} className="fa-fw d-block"/>
@@ -109,7 +131,7 @@ class Home extends Component{
                                         </MediaBody>
                                     </Media>
                                 </Col>
-                                <Col style={['col-md-4' , 'col-3']}>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faIdCard} className="fa-fw d-block"/>
@@ -124,7 +146,7 @@ class Home extends Component{
                                         </MediaBody>
                                     </Media>
                                 </Col>
-                                <Col style={['col-md-4' , 'col-3']}>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faHandHoldingHeart} className="fa-fw d-block"/>
@@ -139,7 +161,7 @@ class Home extends Component{
                                         </MediaBody>
                                     </Media>
                                 </Col>
-                                <Col style={['col-md-4' , 'col-3']}>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faFileCode} className="fa-fw d-block"/>
@@ -154,7 +176,7 @@ class Home extends Component{
                                         </MediaBody>
                                     </Media>
                                 </Col>
-                                <Col style={['col-md-4', 'col-3']}>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faGem} className="fa-fw d-block"/>
@@ -169,7 +191,7 @@ class Home extends Component{
                                         </MediaBody>
                                     </Media>
                                 </Col>
-                                <Col style={['col-md-4', 'col-3']}>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faMobile} className="fa-fw d-block"/>
@@ -184,7 +206,7 @@ class Home extends Component{
                                         </MediaBody>
                                     </Media>
                                 </Col>
-                                <Col style={['col-md-4', 'col-3']}>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faTable} className="fa-fw d-block"/>
@@ -199,7 +221,7 @@ class Home extends Component{
                                         </MediaBody>
                                     </Media>
                                 </Col>
-                                <Col style={['col-md-4', 'col-3']}>
+                                <Col style={['col-md-4' , 'col-3', 'text-center']}>
                                     <Media>
                                         <div className="icon-box">
                                             <FontAwesomeIcon icon={faCreditCard} className="fa-fw d-block"/>

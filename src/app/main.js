@@ -32,7 +32,6 @@ class App extends Component {
     constructor(props){
         super(props)
         this.state = {
-            laoding: true,
             activeRoute : 0,
             sidebarStatus : true,
             quickToolsStatus : false

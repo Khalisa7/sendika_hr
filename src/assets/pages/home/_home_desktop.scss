@@ -47,7 +47,7 @@
             }
             .employee-off{
                 .fa-fw{
-                    color: rgb(31, 94, 212);
+                    color: $color-secondary;
                     font-size: 14px;
                 }
                 .media{
@@ -68,9 +68,13 @@
                     .media-body{
                         align-self: center;
                         .badge{
-                            color: white;
+                            color: $color-text2;
                             border-radius: 15px;
-                            background: $color-secondary;
+                            padding-left: 20px ;
+                            padding-right: 20px;
+                            background: #e0fbe9;
+                            // border: 2px solid #06bb69;
+                            font-weight: 400;
                         }
                     }
 
